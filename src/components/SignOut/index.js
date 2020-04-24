@@ -3,7 +3,7 @@ import React from 'react';
 
 const SignOut = () => (
   <div className='container'>
-    <h1>SignOut</h1>
+    <h1>Sign-Out</h1>
   </div>
 );
 

@@ -1,9 +1,8 @@
 import React from 'react';
 
-
 const SignInPage = () => (
   <div className='container'>
-    <h1>SignIn</h1>
+    <h1>Sign-In</h1>
   </div>
 );
 

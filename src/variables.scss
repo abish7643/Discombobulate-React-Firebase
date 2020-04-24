@@ -1,2 +1,25 @@
+$background-color: #1A1B1E;
+$div-background-color: #1A1B1E;
+
+$border-radius: 12px;
+$box-shadow-inset1: inset 5px 5px 10px #141517;
+$box-shadow-inset2: inset -5px -5px 10px #202125;
+$box-shadow-1: 5px 5px 11px #151619;
+$box-shadow-2: -5px -5px 11px #1f2023;
+
+
 $primary-color: #282c34;
-$secondary-color: #61dafb;
+$secondary-color: #fafafa;
+$highlighted-text: -webkit-linear-gradient(225deg, #4CB8A4,#3CD3AD);
+$highlighted-text-color-one: #4CB8A4;
+$highlighted-text-color-one: #3CD3AD;
+
+$text-color: #fafafa;
+$normal-text-color: #282c34;
+$disabled-text-color: #282c34;
+$highlighted-text-color: #282c34;
+
+$main-container-width: '1000px';
+$responsive-breakpoint-one: 'max-width: 1050px';
+$responsive-breakpoint-two: 'max-width: 750px';
+$responsive-breakpoint-three: 'max-width: 500px';

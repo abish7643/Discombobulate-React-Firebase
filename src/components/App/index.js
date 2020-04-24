@@ -13,11 +13,11 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import Rules from '../Rules';
 import Leaderboard from '../Leaderboard';
+import Footer from '../Footer'
 
 const App = () => (
   <Router>
     <Navigation/>
-    <hr/>
     <Route exact path={ROUTES.LANDING} component={LandingPage}/>
     <Route path={ROUTES.HOME} component={HomePage}/>
     <Route path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -27,6 +27,7 @@ const App = () => (
     <Route path={ROUTES.ADMIN} component={AdminPage} />
     <Route path={ROUTES.RULES} component={Rules} />
     <Route path={ROUTES.LEADERBOARD} component={Leaderboard} />
+    <Footer/>
   </Router>
 );
 
