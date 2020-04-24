@@ -59,8 +59,9 @@
                 text-decoration: none;
                 color: $secondary-color;
                 outline: 0;
-                @media ($responsive-breakpoint-one){
+                @media ($responsive-breakpoint-two){
                     font-size: 12px;
+                    margin: 0px 0px 2px 0px;
                 }
                 &:hover{
                     box-shadow: $box-shadow-inset1, $box-shadow-inset2;
