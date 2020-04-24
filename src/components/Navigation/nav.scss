@@ -48,6 +48,7 @@
             margin-top: 10px;
             text-decoration: none;
             color: $secondary-color;
+            margin-left: 5px;
 
             &__link{
                 font-size: 13px;
@@ -61,7 +62,8 @@
                 outline: 0;
                 @media ($responsive-breakpoint-two){
                     font-size: 12px;
-                    margin: 0px 0px 2px 0px;
+                    margin: 0;
+                    padding-right: 10px;
                 }
                 &:hover{
                     box-shadow: $box-shadow-inset1, $box-shadow-inset2;
