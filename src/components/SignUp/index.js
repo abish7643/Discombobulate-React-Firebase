@@ -10,7 +10,7 @@ const SignUpPage = () => (
   <div className="container">
     <h1>GET STARTED <span className="highlighted__text">RIGHT AWAY</span></h1>
     <SignUpForm/>
-    <SignUpLink/>
+    <SignInLink/>
   </div>
 );
 
@@ -109,14 +109,14 @@ class SignUpFormBase extends Component {
           <label for="name" class="form__label">Confirm Password</label>
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Sign Up</button>
-        {error && <p>{error.message}</p>}
+        {error && <p className="error__text">{error.message}</p>}
       </form>
     );
   }
 }
-const SignUpLink = () => (
+const SignInLink = () => (
   <p>
-    Already have an account? <Link to={ROUTES.SIGN_UP} className="link__decoration">
+    Already have an account? <Link to={ROUTES.SIGN_IN} className="link__decoration">
     <span className="highlighted__text">SIGN IN</span></Link>
   </p>
 );
@@ -125,4 +125,4 @@ const SignUpForm = compose(
   withFirebase,
 )(SignUpFormBase);
 export default SignUpPage;
-export { SignUpForm, SignUpLink };
+export { SignUpForm, SignInLink };

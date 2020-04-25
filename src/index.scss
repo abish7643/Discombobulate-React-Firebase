@@ -47,9 +47,11 @@ h6{
 
 
 .button__form__submit{
-  font-size: 16px;
-  text-transform: capitalize;
+  font-size: 14px;
+  text-transform: uppercase;
   margin: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
   padding: 6px 20px;
   background-color: $background-color;
   border-radius: $border-radius;
@@ -59,17 +61,18 @@ h6{
   outline: 0
   &:disabled{
     color: unset;
+
+    &:hover{
+      cursor: unset;
+    }
   }
   &:enabled{
     color: $highlighted-text-color-one;
-  }
-  &:hover{
     cursor: pointer;
+    &:hover{
+        box-shadow: $box-shadow-inset1, $box-shadow-inset2;
+    }
   }
-  &:hover{
-      box-shadow: $box-shadow-inset1, $box-shadow-inset2;
-  }
-
 }
 
 .link__decoration{
@@ -94,3 +97,15 @@ h6{
       margin-top: 40px;
   }
 }
+
+.error__div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__text{
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 8px;
+    width: 80%;
+  }
+  }

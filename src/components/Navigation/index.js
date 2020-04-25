@@ -28,9 +28,9 @@ const Navigation = () => (
             <GiBatMask className="navigationbar__inner__right__link__icon"/>
             Account
           </Link>
-          <Link to={ROUTES.SIGN_UP} className='navigationbar__inner__right__link'>
+          <Link to={ROUTES.SIGN_IN} className='navigationbar__inner__right__link'>
             <GiDoorHandle className="navigationbar__inner__right__link__icon"/>
-            Sign Up
+            Sign In
           </Link>
       </div>
       </div>

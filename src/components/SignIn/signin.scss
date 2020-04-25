@@ -1,0 +1,77 @@
+@import '../../variables.scss';
+
+.formcontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-1, $box-shadow-2;
+    padding: 10px;
+    padding-top: 20px;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-1, $box-shadow-2;
+  }
+
+  .form__field {
+    font-family: inherit;
+    width: 320px;
+    border: 0;
+    border-bottom: 2px solid $secondary-color;
+    outline: 0;
+    font-size: 1rem;
+    color: $secondary-color;
+    padding: 5px 5px;
+    background: transparent;
+    transition: border-color ease-in 0.2s;
+
+    @media ($responsive-breakpoint-three){
+        width: 100%;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+      font-size: 1rem;
+      cursor: text;
+      top: 20px;
+    }
+  }
+
+  .form__label {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    display: block;
+    transition: 0.2s ease-in;
+    font-size: 0.8rem;
+    color: $secondary-color;
+  }
+
+  .form__field:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: ease-in 0.2s;
+      font-size: 0.8rem;
+      color: $secondary-color;
+      font-weight:500;
+    }
+    padding-bottom: 6px;
+    font-weight: 500;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $highlighted-text-color-one, $highlighted-text-color-one);
+    border-image-slice: 1;
+  }
+  .form__field{
+    &:required,&:invalid { box-shadow:none; }
+  }
