@@ -12,7 +12,7 @@ class Landing extends Component {
   }
   componentDidMount() {
     this.setState({ loading: true });
-    this.props.firebase.users().orderByKey().limitToFirst(2).on('value', snapshot => {
+    this.props.firebase.users().orderByKey().limitToFirst(10).on('value', snapshot => {
       const usersObject = snapshot.val();
       const usersList = Object.keys(usersObject).map(key => ({
         ...usersObject[key],
