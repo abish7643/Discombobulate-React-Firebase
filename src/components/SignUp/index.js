@@ -14,6 +14,7 @@ const SignUpPage = () => (
   </div>
 );
 
+
 const INITIAL_STATE = {
   username: '',
   email: '',
@@ -25,6 +26,7 @@ const INITIAL_STATE = {
 class SignUpFormBase extends Component {
   constructor(props) {
     super(props);
+
     this.state = { ...INITIAL_STATE };
   }
 
@@ -125,7 +127,7 @@ class SignUpFormBase extends Component {
 }
 const SignInLink = () => (
   <p className="form__bottom__links">
-    Already have an account? <Link to={ROUTES.SIGN_IN} className="link__decoration">
+    Already have an account?  <Link to={ROUTES.SIGN_IN} className="link__decoration">
     <span className="highlighted__text">SIGN IN</span></Link>
   </p>
 );

@@ -4,6 +4,7 @@ import { withFirebase } from '../Firebase';
 class Landing extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       loading: false,
       users: [],
@@ -11,7 +12,7 @@ class Landing extends Component {
   }
   componentDidMount() {
     this.setState({ loading: true });
-    this.props.firebase.users().on('value', snapshot => {
+    this.props.firebase.users().orderByKey().limitToFirst(2).on('value', snapshot => {
       const usersObject = snapshot.val();
       const usersList = Object.keys(usersObject).map(key => ({
         ...usersObject[key],
