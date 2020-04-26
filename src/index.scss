@@ -48,7 +48,9 @@ h6{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.muted__text{
+  opacity: 0.7;
+}
 
 .button__form__submit{
   font-size: 14px;
@@ -62,7 +64,7 @@ h6{
   box-shadow: $box-shadow-1, $box-shadow-2;
   border: 0px solid $background-color;
   transition: ease-in 0.2s;
-  outline: 0
+  outline: 0;
   &:disabled{
     color: unset;
 

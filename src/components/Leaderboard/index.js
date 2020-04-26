@@ -1,10 +1,19 @@
 import React from 'react';
-
+import  { FirebaseContext } from '../Firebase';
+import { withAuthorization } from '../Session';
 
 const Leaderboard = () => (
-  <div className='container'>
-    <h1>Leaderboard</h1>
-  </div>
+  <FirebaseContext.Consumer>
+    {firebase => {
+      return(
+        <div className="container">
+          <h1><span className="highlighted__text">Leaderboard</span></h1>
+          <br/>Not Started As of Now
+        </div>
+      )
+    }}
+  </FirebaseContext.Consumer>
 );
 
-export default Leaderboard;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(Leaderboard);

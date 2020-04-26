@@ -1,5 +1,6 @@
 import React from 'react';
 import  { FirebaseContext } from '../Firebase';
+import { withAuthorization } from '../Session';
 
 const HomePage = () => (
   <FirebaseContext.Consumer>
@@ -14,4 +15,5 @@ const HomePage = () => (
   </FirebaseContext.Consumer>
 );
 
-export default HomePage;
+const condition = authUser => !!authUser;
+export default withAuthorization(condition)(HomePage);

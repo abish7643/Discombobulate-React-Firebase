@@ -60,7 +60,7 @@ class PasswordForgetFormBase extends Component {
   }
 }
 const PasswordForgetLink = () => (
-  <p className="form__bottom__links">
+  <p className="form__bottom__links muted__text">
     Hard to Remember? <Link to={ROUTES.PASSWORD_FORGET} className="link__decoration">
     <span className="highlighted__text">Forgot Password</span></Link>
   </p>
