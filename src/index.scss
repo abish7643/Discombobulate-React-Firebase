@@ -115,3 +115,13 @@ h6{
     width: 80%;
   }
   }
+
+  .loading__animation{
+    animation-name: example;
+    animation-duration: 4s;
+  }
+
+  @keyframes example {
+  from {color: $primary-color;}
+  to {color: $highlighted-text-color-one;}
+}
