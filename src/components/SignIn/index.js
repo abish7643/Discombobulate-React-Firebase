@@ -3,13 +3,19 @@ import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+
+import { PasswordForgetLink } from '../PasswordForget';
+
 const SignInPage = () => (
   <div className="container">
     <h1>GET RIGHT INTO <span className="highlighted__text">ACTION</span></h1>
     <SignInForm />
+    <PasswordForgetLink />
     <SignUpLink />
   </div>
 );
+
+
 const INITIAL_STATE = {
   email: '',
   password: '',
@@ -71,9 +77,9 @@ class SignInFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <p>
-    Already have an account? <Link to={ROUTES.SIGN_UP} className="link__decoration">
-    <span className="highlighted__text">SIGN UP</span></Link>
+  <p className="form__bottom__links">
+    Don't have an Account? <Link to={ROUTES.SIGN_UP} className="link__decoration">
+    <span className="highlighted__text">Sign Up</span></Link>
   </p>
 );
 

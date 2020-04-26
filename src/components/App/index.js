@@ -2,6 +2,10 @@ import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import * as ROUTES from '../../constants/routes'
+//import { withFirebase } from '../Firebase';
+
+//import { AuthUserContext } from '../Session';
+import { withAuthentication } from '../Session';
 
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
@@ -14,6 +18,7 @@ import AdminPage from '../Admin';
 import Rules from '../Rules';
 import Leaderboard from '../Leaderboard';
 import Footer from '../Footer'
+
 
 const App = () => (
   <Router>
@@ -31,4 +36,5 @@ const App = () => (
   </Router>
 );
 
-export default App;
+
+export default withAuthentication(App);
