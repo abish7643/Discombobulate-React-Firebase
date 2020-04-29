@@ -11,9 +11,8 @@ const AccountPage = () => (
     {authUser => (
       <div className="container">
         <h1>Account</h1>
-        <span>Hey, <span className="highlighted__text"><UserInfoClass/></span></span>
-
-        <h2>Reset Your Password</h2>
+        <h2>Hey, <span className="highlighted__text"><UserInfoClass/></span></h2>
+        <h4>Reset Your Password</h4>
         <PasswordChangeForm />
       </div>
     )}

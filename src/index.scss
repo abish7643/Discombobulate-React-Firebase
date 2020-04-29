@@ -40,7 +40,7 @@ h1{
   border-radius: $border-radius;
   box-shadow: $box-shadow-1, $box-shadow-2;
   @media ($responsive-breakpoint-three){
-      font-size: 23Spx;
+      font-size: 24px;
   }
 }
 
@@ -159,15 +159,34 @@ h6{
 }
 
 .imagecontainer{
-  width: 90%;
-  display: block;
-  &__image{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__img{
+    
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    width: 80%;
+    min-height: 230px;
+    @media ($responsive-breakpoint-three){
+      width: 95%;
+    }
+  }
+  &__img[alt]{
+    color: $secondary-color;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
   }
   &__caption{
     opacity: 0.6;
+    margin: 10px 0px;
+  @media ($responsive-breakpoint-three){
     margin: 0;
+    margin-top: 10px;
+  }
   }
 }
