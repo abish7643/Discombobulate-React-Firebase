@@ -1,7 +1,7 @@
 import React from 'react';
 import * as ROLES from '../../constants/roles';
 import { withAuthorization } from '../Session';
-import { withFirebase } from '../Firebase';
+//import { withFirebase } from '../Firebase';
 
 const AdminPage = () => (
   <div className='container'>

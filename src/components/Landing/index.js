@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
+import UserList from './userList'
 
 class Landing extends Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class Landing extends Component {
   render() {
     const { users, loading } = this.state;
     return (
-      <div class="container">
-        <h1>Users</h1>
+      <div className="container">
+        <h1>Newly Joined <span className="highlighted__text">Players</span></h1>
         <div>
           {loading && <h1><span className="loading__animation">...</span></h1>}
           <UserList users={users} />
@@ -41,16 +42,6 @@ class Landing extends Component {
     );
   }
 }
-const UserList = ({ users }) => (
-  <div>
-    {users.map(user => (
-      <span key={user.uid}>
-        <p>
-          <span className="highlighted__text">{user.username}</span> Joined
-        </p>
-      </span>
-    ))}
-  </div>
-);
+
 
 export default withFirebase(Landing);

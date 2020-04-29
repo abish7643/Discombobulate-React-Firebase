@@ -8,4 +8,4 @@ export const PASSWORD_FORGET = '/pw-forget';
 
 export const RULES = '/rules';
 export const LEADERBOARD = '/leaderboard'
-export const QUIZ = '/quiz'
+export const CHALLENGES = '/challenges'

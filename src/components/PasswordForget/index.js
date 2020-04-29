@@ -41,9 +41,9 @@ class PasswordForgetFormBase extends Component {
     const isInvalid = email === '';
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="email"
           value={this.state.email}
           onChange={this.onChange}

@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+//import 'firebase/firestore';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -32,8 +33,13 @@ const config = {
     doPasswordUpdate = password =>
       this.auth.currentUser.updatePassword(password);
 
-    user = uid => this.db.ref(`users/${uid}`);
+    
+    user = uid => this.db.ref(`users/${this.auth.currentUser.uid}`);
     users = () => this.db.ref('users');
+
+    question = uid => this.db.ref(`questions/${this.auth.currentUser.uid}`);
+    questions = () => this.db.ref(`questions`);
+
   }
 
   export default Firebase;

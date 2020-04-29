@@ -78,49 +78,49 @@ class SignUpFormBase extends Component {
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
 
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="username"
           value={username}
           onChange={this.onChange}
           type="text"
           placeholder="Full Name"
           required />
-          <label for="name" class="form__label">Username</label>
+          <label for="name" className="form__label">Username</label>
         </div>
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
           required />
-          <label for="name" class="form__label">Email Address</label>
+          <label for="name" className="form__label">Email Address</label>
         </div>
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
           required />
-          <label for="name" class="form__label">Password</label>
+          <label for="name" className="form__label">Password</label>
         </div>
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm Password"
           required />
-          <label for="name" class="form__label">Confirm Password</label>
+          <label for="name" className="form__label">Confirm Password</label>
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Sign Up</button>
         {error && <p className="error__text">{error.message}</p>}

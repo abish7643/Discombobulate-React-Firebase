@@ -18,6 +18,7 @@ import AdminPage from '../Admin';
 import Rules from '../Rules';
 import Leaderboard from '../Leaderboard';
 import Footer from '../Footer'
+import ChallengesPage from '../Challenges';
 
 
 const App = () => (
@@ -32,6 +33,7 @@ const App = () => (
     <Route path={ROUTES.ADMIN} component={AdminPage} />
     <Route path={ROUTES.RULES} component={Rules} />
     <Route path={ROUTES.LEADERBOARD} component={Leaderboard} />
+    <Route path={ROUTES.CHALLENGES} component={ChallengesPage} />
     <Footer/>
   </Router>
 );

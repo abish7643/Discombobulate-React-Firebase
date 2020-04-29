@@ -33,27 +33,27 @@ class PasswordChangeForm extends Component {
       passwordOne !== passwordTwo || passwordOne === '';
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="passwordOne"
           value={passwordOne}
           onChange={this.onChange}
           type="password"
           placeholder="New Password"
           required />
-          <label for="name" class="form__label">New Password</label>
+          <label for="name" className="form__label">New Password</label>
         </div>
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="passwordTwo"
           value={passwordTwo}
           onChange={this.onChange}
           type="password"
           placeholder="Confirm New Password"
           required />
-          <label for="name" class="form__label">Confirm New Password</label>
+          <label for="name" className="form__label">Confirm New Password</label>
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Reset My Password</button>
       <div className="error__div">{error && <p className="error__div__text">{error.message}</p>}</div>

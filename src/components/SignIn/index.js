@@ -47,30 +47,30 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="email"
           value={email}
           onChange={this.onChange}
           type="text"
           placeholder="Email Address"
           required />
-          <label for="name" class="form__label">Email Address</label>
+          <label for="name" className="form__label">Email Address</label>
         </div>
-        <div class="form__group field">
+        <div className="form__group field">
           <input type="input"
-          class="form__field"
+          className="form__field"
           name="password"
           value={password}
           onChange={this.onChange}
           type="password"
           placeholder="Password"
           required />
-        <label for="name" class="form__label">Password</label>
+        <label for="name" className="form__label">Password</label>
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Sign In</button>
-        <div className="error__div">{error && <p className="error__div__text">{error.message}</p>}</div>
+        <div className="error">{error && <p className="error__text">{error.message}</p>}</div>
       </form>
     );
   }
