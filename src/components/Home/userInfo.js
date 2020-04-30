@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import withAuthentication from '../Session/withAuthentication'
+import Username from './userName'
 
 class UserInfo extends Component {
   constructor(props) {
@@ -34,13 +35,11 @@ class UserInfo extends Component {
   }
   
   render() {
-    const { loading } = this.state;
-    let userName = this.state.user.username
+    const { user, loading } = this.state;
 
     return (
       <React.Fragment>
-          {loading && <span className="loading__animation"></span>}
-          {userName}
+          <Username user={user}/>
       </React.Fragment>
     );
   }
