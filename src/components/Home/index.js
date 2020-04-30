@@ -8,6 +8,7 @@ import { AuthUserContext, withAuthentication } from '../Session';
 
 import LeadingUser from './leadingUser'
 import UserInfo from './userInfo'
+import Username from './userName'
 import ChallengesCompleted from './challengesCompleted'
 
 class HomePageClass extends Component {
@@ -25,7 +26,6 @@ class HomePageClass extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-
     this.listener = this.props.firebase.onAuthUserListener(
       authUser => {
         this.setState({ authUser });
@@ -76,7 +76,7 @@ class HomePageClass extends Component {
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           
           <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
-          Hey <span className="highlighted__text"><UserInfo/></span>
+          Hey <span className="highlighted__text"><Username user={user}/></span>
             </span>
           </h2>
           <h3>
