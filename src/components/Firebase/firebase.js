@@ -1,7 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/database';
-//import 'firebase/firestore';
+import 'firebase/firestore';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -15,8 +14,10 @@ const config = {
   class Firebase {
     constructor() {
       app.initializeApp(config);
+
       this.auth = app.auth();
-      this.db = app.database();
+      this.fieldValue = app.firestore.FieldValue;
+      this.db = app.firestore();
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -33,12 +34,33 @@ const config = {
     doPasswordUpdate = password =>
       this.auth.currentUser.updatePassword(password);
 
+    onAuthUserListener = (next, fallback) =>
+      this.auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        this.user(authUser.uid)
+          .get()
+          .then(snapshot => {
+            const dbUser = snapshot.data();
+ 
+            // merge auth and db user
+            authUser = {
+              uid: authUser.uid,
+              email: authUser.email,
+              ...dbUser,
+            };
+ 
+            next(authUser);
+          });
+      } else {
+        fallback();
+      }
+    });
     
-    user = uid => this.db.ref(`users/${this.auth.currentUser.uid}`);
-    users = () => this.db.ref('users');
+    user = () => this.db.doc(`users/${this.auth.currentUser.uid}`);
+    users = () => this.db.collection('users');
 
-    question = uid => this.db.ref(`questions/${this.auth.currentUser.uid}`);
-    questions = () => this.db.ref(`questions`);
+    question = uid => this.db.doc(`questions/${this.auth.currentUser.uid}`);
+    questions = () => this.db.collection(`questions`);
 
   }
 

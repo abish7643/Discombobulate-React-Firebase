@@ -44,7 +44,9 @@ class SignUpFormBase extends Component {
           .set({
             username,
             email,
-          });
+          },
+          { merge: true },
+          );
       })
       .then(() => {
         this.setState({ ...INITIAL_STATE });

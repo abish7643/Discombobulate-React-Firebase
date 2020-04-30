@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link,  } from 'react-router-dom'
 import  { FirebaseContext } from '../Firebase';
 import { AuthUserContext, withAuthorization } from '../Session';
 import UserInfo from '../Home/userInfo' 
@@ -36,10 +36,7 @@ const HomePage = () => (
             <button className="button__form__submit">
                 Continue
             </button>
-            </Link>  
-          </div>
-          <div className='container__inner'>
-            
+            </Link>
           </div>
         </div>
       )
