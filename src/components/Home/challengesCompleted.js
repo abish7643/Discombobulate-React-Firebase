@@ -1,8 +1,8 @@
 import React from 'react';
 
 const challengesCompleted = ({ user }) => {
-  if (user === {}){
-    return <span className="highlighted__text">...</span>;
+  if (user === null){
+    return <span className="highlighted__text"></span>;
   } 
   return (<span className="highlighted__text">{user.challengesCompleted}</span>);
 }

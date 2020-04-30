@@ -4,7 +4,7 @@ import * as ROUTES from '../../constants/routes'
 import {compose} from 'recompose'
 
 import  { withFirebase } from '../Firebase';
-import { AuthUserContext, withAuthentication } from '../Session';
+import { AuthUserContext, withAuthentication, withAuthorization } from '../Session';
 
 import LeadingUser from './leadingUser'
 import UserInfo from './userInfo'
@@ -18,7 +18,7 @@ class HomePageClass extends Component {
     this.state = {
       loading: false,
       authUser: JSON.parse(localStorage.getItem('authUser')),
-      user: {},
+      user: JSON.parse(localStorage.getItem('user')),
       highestScoreUserData: [],
       highestScoreUserLimit: 1, 
     };
@@ -33,6 +33,7 @@ class HomePageClass extends Component {
         this.unsubscribe = this.props.firebase.user(authUser.uid)
           .onSnapshot(snapshot => {
           let user = snapshot.data();
+          localStorage.setItem('user', JSON.stringify(user));
           this.setState({
             user: user,
             loading: false,
@@ -41,6 +42,7 @@ class HomePageClass extends Component {
       },
       () => {
         localStorage.removeItem('authUser');
+        localStorage.removeItem('user');
         this.setState({ authUser: null });
       },
     );
@@ -106,10 +108,11 @@ class HomePageClass extends Component {
   }
 }
 
+
+const condition = authUser => !!authUser;
 const HomePage = compose(
-  withFirebase,
-  withAuthentication,
+  withAuthorization(condition),
 )(HomePageClass)
 
 
-export default (HomePage);
+export default withFirebase(HomePage);
