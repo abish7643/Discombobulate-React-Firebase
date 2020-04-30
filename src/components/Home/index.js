@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Link,  } from 'react-router-dom'
+import * as ROUTES from '../../constants/routes'
+import {compose} from 'recompose'
 
 import  { withFirebase } from '../Firebase';
 import { AuthUserContext, withAuthentication } from '../Session';
 
 import LeadingUser from './leadingUser'
-//import Landing from '../Landing'
-
-import * as ROUTES from '../../constants/routes'
-import {compose} from 'recompose'
+import Username from './userName'
+import ChallengesCompleted from './challengesCompleted'
 
 class HomePageClass extends Component {
   constructor(props) {
@@ -17,13 +17,11 @@ class HomePageClass extends Component {
     this.state = {
       loading: false,
       authUser: JSON.parse(localStorage.getItem('authUser')),
-      user: {},
+      user: JSON.parse(localStorage.getItem('user')),
       highestScoreUserData: [],
       highestScoreUserLimit: 1, 
     };
   }
-
-  
 
   componentDidMount() {
     this.setState({ loading: true });
@@ -32,6 +30,7 @@ class HomePageClass extends Component {
       authUser => {
         this.setState({ authUser });
         localStorage.setItem('authUser', JSON.stringify(authUser));
+        
         this.unsubscribe = this.props.firebase.user(authUser.uid)
           .onSnapshot(snapshot => {
           let user = snapshot.data();
@@ -39,16 +38,16 @@ class HomePageClass extends Component {
             user: user,
             loading: false,
         });
-        
+        localStorage.setItem('user', JSON.stringify(user));
       });
       },
       () => {
         localStorage.removeItem('authUser');
+        localStorage.removeItem('user');
         this.setState({ authUser: null });
       },
     );
 
-    
     this.unsubscribe = this.props.firebase
       .users()
       .orderBy('challengesCompleted', 'desc')
@@ -72,9 +71,7 @@ class HomePageClass extends Component {
   }
   
   render() { 
-    const { highestScoreUserData, loading } = this.state;
-    const completedChallenges = this.state.user.challengesCompleted
-    const userName = this.state.user.username
+    const { user, highestScoreUserData, loading } = this.state;
     return(
       <AuthUserContext.Consumer>
         {authUser => (
@@ -82,12 +79,12 @@ class HomePageClass extends Component {
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           
           <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
-          Hey <span className="highlighted__text">{userName}</span>
+          Hey <span className="highlighted__text"><Username user={user}/></span>
             </span>
           </h2>
           <h3>
             <span className="neumorphic__shadow neumorphic__shadow__padding">
-            You Completed <span className="highlighted__text">{completedChallenges}</span> Challenges
+            You Completed <span className="highlighted__text"><ChallengesCompleted user={user}/></span> Challenges
             </span>
           </h3>
           <p className="neumorphic__shadow__padding">
