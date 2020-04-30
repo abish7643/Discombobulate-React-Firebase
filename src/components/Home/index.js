@@ -17,7 +17,7 @@ class HomePageClass extends Component {
     this.state = {
       loading: false,
       authUser: JSON.parse(localStorage.getItem('authUser')),
-      user: JSON.parse(localStorage.getItem('user')),
+      user: {},
       highestScoreUserData: [],
       highestScoreUserLimit: 1, 
     };
@@ -30,7 +30,6 @@ class HomePageClass extends Component {
       authUser => {
         this.setState({ authUser });
         localStorage.setItem('authUser', JSON.stringify(authUser));
-        
         this.unsubscribe = this.props.firebase.user(authUser.uid)
           .onSnapshot(snapshot => {
           let user = snapshot.data();
@@ -38,12 +37,10 @@ class HomePageClass extends Component {
             user: user,
             loading: false,
         });
-        localStorage.setItem('user', JSON.stringify(user));
       });
       },
       () => {
         localStorage.removeItem('authUser');
-        localStorage.removeItem('user');
         this.setState({ authUser: null });
       },
     );
@@ -91,8 +88,8 @@ class HomePageClass extends Component {
             <span className="neumorphic__shadow neumorphic__shadow__padding">
             Highest Achieved Score - {loading && <span><span className="loading__animation">...</span></span>}<LeadingUser highestUser={highestScoreUserData}/><br/>
             </span>
-            <p className="italic__text neumorphic__shadow neumorphic__shadow__padding">Doesn't Matter How Much You're Behind.
-            <span className="highlighted__text italic__text"> You Can Pull Ahead No Matter What!</span>
+            <p className="italic__text neumorphic__shadow neumorphic__shadow__padding">
+              Doesn't Matter How Much You're Behind. You Can Pull Ahead No Matter What!
             </p>
           </p>
           <Link to={ROUTES.CHALLENGES}>
