@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import withAuthentication from '../Session/withAuthentication'
-import { AuthUserContext } from '../Session';
 
 class UserInfo extends Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class UserInfo extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
+    console.log(this.state.user)
     if (this.state.user === null){
       this.unsubscribe = this.props.firebase.user()
       .onSnapshot(snapshot => {

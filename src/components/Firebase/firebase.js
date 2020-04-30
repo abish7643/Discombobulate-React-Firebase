@@ -60,9 +60,6 @@ const config = {
     createdAt = () => {
       return this.fieldValue.serverTimestamp()
     }
-    currentUserUID = () => {
-      return this.auth.currentUser.uid
-    }
     
     user = uid => this.db.doc(`users/${uid}`);
     users = () => this.db.collection('users');
