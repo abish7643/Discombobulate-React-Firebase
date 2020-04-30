@@ -9,6 +9,7 @@ class Landing extends Component {
     this.state = {
       loading: false,
       users: [],
+      limit: 6,
     };
   }
   componentDidMount() {
@@ -16,6 +17,8 @@ class Landing extends Component {
  
     this.unsubscribe = this.props.firebase
       .users()
+      .orderBy('AccountCreatedAt', 'desc')
+      .limit(this.state.limit)
       .onSnapshot(snapshot => {
         let users = [];
  

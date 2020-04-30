@@ -15,8 +15,9 @@ const config = {
     constructor() {
       app.initializeApp(config);
 
-      this.auth = app.auth();
       this.fieldValue = app.firestore.FieldValue;
+      
+      this.auth = app.auth();
       this.db = app.firestore();
     }
 
@@ -55,11 +56,18 @@ const config = {
         fallback();
       }
     });
+
+    createdAt = () => {
+      return this.fieldValue.serverTimestamp()
+    }
+    currentUserUID = () => {
+      return this.auth.currentUser.uid
+    }
     
-    user = () => this.db.doc(`users/${this.auth.currentUser.uid}`);
+    user = uid => this.db.doc(`users/${uid}`);
     users = () => this.db.collection('users');
 
-    question = uid => this.db.doc(`questions/${this.auth.currentUser.uid}`);
+    question = uid => this.db.doc(`questions/${uid}`);
     questions = () => this.db.collection(`questions`);
 
   }
