@@ -7,7 +7,7 @@ import  { withFirebase } from '../Firebase';
 import { AuthUserContext, withAuthentication } from '../Session';
 
 import LeadingUser from './leadingUser'
-import Username from './userName'
+import UserInfo from './userInfo'
 import ChallengesCompleted from './challengesCompleted'
 
 class HomePageClass extends Component {
@@ -76,7 +76,7 @@ class HomePageClass extends Component {
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           
           <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
-          Hey <span className="highlighted__text"><Username user={user}/></span>
+          Hey <span className="highlighted__text"><UserInfo/></span>
             </span>
           </h2>
           <h3>
@@ -88,7 +88,7 @@ class HomePageClass extends Component {
             <span className="neumorphic__shadow neumorphic__shadow__padding">
             Highest Achieved Score - {loading && <span><span className="loading__animation">...</span></span>}<LeadingUser highestUser={highestScoreUserData}/><br/>
             </span>
-            <p className="italic__text neumorphic__shadow neumorphic__shadow__padding">
+            <p className="italic__text muted__text neumorphic__shadow neumorphic__shadow__padding">
               Doesn't Matter How Much You're Behind. You Can Pull Ahead No Matter What!
             </p>
           </p>
