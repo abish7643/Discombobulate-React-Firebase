@@ -65,11 +65,10 @@ class ChallengesPageClass extends Component {
         {loading && <span className='highlighted__text'>...</span>} {questions.number}</span></h1>
       <QuestionRender questions={questions}/>
       {loading && <span className='highlighted__text'>...</span>}
-      <div className='container__inner'>
+      
       <div>
         <ChallengeAnswerInput/>
         </div>
-      </div>
       </div>
     )}
     </AuthUserContext.Consumer>

@@ -65,7 +65,8 @@ class HomePageClass extends Component {
           </h3>
           <p className="neumorphic__shadow__padding">
             <span className="neumorphic__shadow neumorphic__shadow__padding">
-            Highest Achieved Score - {loading && <span><span className="loading__animation">...</span></span>}<LeadingUser highestUser={highestScoreUserData}/><br/>
+            Highest Achieved Score - {loading && <span><span className="loading__animation">...</span></span>}
+            <LeadingUser highestUser={highestScoreUserData}/><br/>
             </span>
             <p className="italic__text muted__text neumorphic__shadow neumorphic__shadow__padding">
               Doesn't Matter How Much You're Behind. You Can Pull Ahead No Matter What!

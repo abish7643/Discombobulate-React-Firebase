@@ -10,7 +10,14 @@ const AccountPage = () => (
     {authUser => (
       <div className="container">
         <h1>Account</h1>
-        <h2>Hey, <span className="highlighted__text"><UserInfo/></span></h2>
+        <div>
+          <p className='neumorphic__shadow neumorphic__shadow__padding'>
+            Name: <span className="highlighted__text"><UserInfo/></span>
+            </p>
+          <p className='neumorphic__shadow neumorphic__shadow__padding'>
+            Email: <span className="highlighted__text">{authUser.email}</span>
+            </p>
+        </div>
         <h4>Reset Your Password</h4>
         <PasswordChangeForm />
       </div>

@@ -4,6 +4,9 @@ import React from 'react';
 const Rules = () => (
   <div className='container'>
     <h1>Rules</h1>
+    <div className='container__inner'>
+    
+    </div>
   </div>
 );
 

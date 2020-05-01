@@ -41,7 +41,7 @@ class Landing extends Component {
     return (
       <div className="container">
         <h1>Newly Joined <span className="highlighted__text">Players</span></h1>
-        <div>
+        <div className='list'>
           {loading && <h1><span className="loading__animation">...</span></h1>}
           <UserList users={users} />
         </div>

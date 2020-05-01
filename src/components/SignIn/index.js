@@ -77,7 +77,7 @@ class SignInFormBase extends Component {
 }
 
 const SignUpLink = () => (
-  <p className="form__bottom__links ">
+  <p className="form__bottom__links smaller__text">
     Don't have an Account? <Link to={ROUTES.SIGN_UP} className="link__decoration">
     <span className="highlighted__text">SIGN UP</span></Link>
   </p>
