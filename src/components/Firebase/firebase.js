@@ -64,7 +64,7 @@ const config = {
     user = uid => this.db.doc(`users/${uid}`);
     users = () => this.db.collection('users');
 
-    question = uid => this.db.doc(`questions/${uid}`);
+    question = questionID => this.db.doc(`questions/${questionID}`);
     questions = () => this.db.collection(`questions`);
 
   }

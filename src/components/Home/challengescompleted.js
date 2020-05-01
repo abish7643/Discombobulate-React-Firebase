@@ -14,13 +14,11 @@ class ChallengesCompleted extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    console.log(this.state.user)
     if (this.state.user === null){
       this.unsubscribe = this.props.firebase.user()
       .onSnapshot(snapshot => {
       let userData = snapshot.data();
       localStorage.setItem('userData', JSON.stringify(userData));
-      console.log(userData)
       this.setState({
         user: userData,
         loading: false,
