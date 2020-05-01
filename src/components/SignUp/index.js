@@ -6,6 +6,9 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 import './signup.scss'
 
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
 const SignUpPage = () => (
   <div className="container">
     <h1>GET STARTED <span className="highlighted__text">RIGHT AWAY</span></h1>
@@ -21,6 +24,8 @@ const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
   error: null,
+  loading: false,
+
 };
 
 class SignUpFormBase extends Component {
@@ -32,6 +37,7 @@ class SignUpFormBase extends Component {
 
 
   onSubmit = event => {
+    this.setState({ loading: true });
     const { username, email, passwordOne } = this.state;
     const startChallenge = 0;
     const finishedChallenge = 0;
@@ -66,6 +72,7 @@ class SignUpFormBase extends Component {
       })
       .catch(error => {
         this.setState({ error });
+        this.setState({ loading: false });
       });
     event.preventDefault();
   };
@@ -81,6 +88,7 @@ class SignUpFormBase extends Component {
       passwordOne,
       passwordTwo,
       error,
+      loading
     } = this.state;
 
     const isInvalid =
@@ -136,7 +144,7 @@ class SignUpFormBase extends Component {
           required />
           <label for="name" className="form__label">Confirm Password</label>
         </div>
-        <button disabled={isInvalid} className="button__form__submit" type="submit">Sign Up</button>
+        <button disabled={isInvalid} className="button__form__submit" type="submit">Sign Up <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/></button>
         {error && <p className="error__text">{error.message}</p>}
       </form>
     );

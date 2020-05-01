@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
 const INITIAL_STATE = {
   passwordOne: '',
   passwordTwo: '',
   error: null,
+  loading: false,
 };
 
 class PasswordChangeForm extends Component {
@@ -13,6 +17,7 @@ class PasswordChangeForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
   onSubmit = event => {
+    this.setState({loading: true})
     const { passwordOne } = this.state;
     this.props.firebase
       .doPasswordUpdate(passwordOne)
@@ -21,6 +26,7 @@ class PasswordChangeForm extends Component {
       })
       .catch(error => {
         this.setState({ error });
+        this.setState({loading: false})
       });
     event.preventDefault();
   };
@@ -28,7 +34,7 @@ class PasswordChangeForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
-    const { passwordOne, passwordTwo, error } = this.state;
+    const { passwordOne, passwordTwo, error, loading } = this.state;
     const isInvalid =
       passwordOne !== passwordTwo || passwordOne === '';
     return (
@@ -55,7 +61,8 @@ class PasswordChangeForm extends Component {
           required />
           <label for="name" className="form__label">Confirm New Password</label>
         </div>
-        <button disabled={isInvalid} className="button__form__submit" type="submit">Reset My Password</button>
+        <button disabled={isInvalid} className="button__form__submit" type="submit">Reset My Password <ClipLoader size={8} 
+        color={'#4CB8A4'} loading={loading}/></button>
       <div className="error__div">{error && <p className="error__div__text">{error.message}</p>}</div>
       </form>
     );

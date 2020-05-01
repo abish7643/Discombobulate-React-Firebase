@@ -10,7 +10,7 @@ const QuestionRender = ({ questions }) => {
               <div key={questions.imageURL} className='imagecontainer'>
               <img src={questions.imageURL}
               className='imagecontainer__img neumorphic__shadow' 
-              alt='Loading Image ...'/>
+              alt=' '/>
               <p className='imagecontainer__caption'>{questions.question}</p>
           </div>
       </React.Fragment>

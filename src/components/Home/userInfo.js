@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import Username from './usernameattribute'
 
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
 class UserInfo extends Component {
   constructor(props) {
     super(props);
@@ -21,10 +24,10 @@ class UserInfo extends Component {
       localStorage.setItem('userData', JSON.stringify(userData));
       this.setState({
         user: userData,
-        loading: false,
       });
     });
   }
+  this.setState({loading:false})
 }
 
   componentWillUnmount() {
@@ -36,6 +39,7 @@ class UserInfo extends Component {
 
     return (
       <React.Fragment>
+          <ClipLoader size={9} color={'#4CB8A4'} loading={loading}/>
           <Username user={user}/>
       </React.Fragment>
     );

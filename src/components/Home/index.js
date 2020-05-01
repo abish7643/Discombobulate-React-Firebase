@@ -10,6 +10,9 @@ import LeadingUser from './leadingUser'
 import UserInfoClass from './userInfo'
 import ChallengesCompleted from './challengescompleted'
 
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
 class HomePageClass extends Component {
   constructor(props) {
     super(props);
@@ -52,6 +55,7 @@ class HomePageClass extends Component {
       <AuthUserContext.Consumer>
         {authUser => (
       <div className="container">
+        
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           
           <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
@@ -65,7 +69,7 @@ class HomePageClass extends Component {
           </h3>
           <p className="neumorphic__shadow__padding">
             <span className="neumorphic__shadow neumorphic__shadow__padding">
-            Highest Achieved Score - {loading && <span><span className="loading__animation">...</span></span>}
+            Highest Achieved Score - {loading && <span><ClipLoader size={8} color={'#4CB8A4'} loading={this.state.loading}/></span>}
             <LeadingUser highestUser={highestScoreUserData}/><br/>
             </span>
             <p className="italic__text muted__text neumorphic__shadow neumorphic__shadow__padding">
@@ -74,7 +78,7 @@ class HomePageClass extends Component {
           </p>
           <Link to={ROUTES.CHALLENGES}>
           <button className="button__form__submit">
-              Continue
+              Continue <ClipLoader size={8} color={'#4CB8A4'} loading={this.state.loading}/>
           </button>
           </Link>
         </div>

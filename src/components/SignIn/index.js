@@ -5,6 +5,8 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 import { PasswordForgetLink } from '../PasswordForget';
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const SignInPage = () => (
   <div className="container">
@@ -20,6 +22,7 @@ const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
+  loading: false,
 };
 class SignInFormBase extends Component {
   constructor(props) {
@@ -27,6 +30,7 @@ class SignInFormBase extends Component {
     this.state = { ...INITIAL_STATE };
   }
   onSubmit = event => {
+    this.setState({loading: true})
     const { email, password } = this.state;
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
@@ -36,6 +40,7 @@ class SignInFormBase extends Component {
       })
       .catch(error => {
         this.setState({ error });
+        this.setState({loading: false})
       });
     event.preventDefault();
   };
@@ -43,7 +48,7 @@ class SignInFormBase extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   render() {
-    const { email, password, error } = this.state;
+    const { email, password, error, loading } = this.state;
     const isInvalid = password === '' || email === '';
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
@@ -69,7 +74,8 @@ class SignInFormBase extends Component {
           required />
         <label for="name" className="form__label">Password</label>
         </div>
-        <button disabled={isInvalid} className="button__form__submit" type="submit">Sign In</button>
+        <button disabled={isInvalid} className="button__form__submit" type="submit">Sign In <ClipLoader size={8} 
+        color={'#4CB8A4'} loading={loading}/></button>
         <div className="error">{error && <p className="error__text">{error.message}</p>}</div>
       </form>
     );

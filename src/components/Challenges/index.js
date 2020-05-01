@@ -10,6 +10,10 @@ import QuestionRender from './question'
 //const questionAsImageURL = 'https://i.ibb.co/zGNNf6k/1.png';
 
 
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
+
+
 class ChallengesPageClass extends Component {
   constructor(props) {
     super(props);
@@ -62,9 +66,13 @@ class ChallengesPageClass extends Component {
         {authUser => (
       <div className='container'>
       <h1>Challenge <span className="highlighted__text">
-        {loading && <span className='highlighted__text'>...</span>} {questions.number}</span></h1>
+        {loading && <ClipLoader size={16} color={'#4CB8A4'} loading={this.state.loading}/>} {questions.number}</span></h1>
       <QuestionRender questions={questions}/>
-      {loading && <span className='highlighted__text'>...</span>}
+      <div className='loader'>
+            <div className='loader__inner'>
+            {loading && <ClipLoader size={25} color={'#4CB8A4'} loading={this.state.loading}/>}
+            </div>
+          </div>
       
       <div>
         <ChallengeAnswerInput/>

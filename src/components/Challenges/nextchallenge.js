@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import NextChallengeRender from './nextchallengeattribute'
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 class NextChallenge extends Component {
   constructor(props) {
@@ -36,6 +38,7 @@ class NextChallenge extends Component {
 
     return (
       <React.Fragment>
+          <ClipLoader size={9} color={'#4CB8A4'} loading={loading}/>
           <NextChallengeRender user={user}/>
       </React.Fragment>
     );
