@@ -7,4 +7,4 @@ const Username = ({ user }) => {
   return (<span className="highlighted__text">{user.username}</span>);
 };
 
-export default Username
+export default Username;

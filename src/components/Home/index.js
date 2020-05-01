@@ -4,12 +4,11 @@ import * as ROUTES from '../../constants/routes'
 import {compose} from 'recompose'
 
 import  { withFirebase } from '../Firebase';
-import { AuthUserContext, withAuthentication, withAuthorization } from '../Session';
+import { AuthUserContext, withAuthorization } from '../Session';
 
 import LeadingUser from './leadingUser'
-import UserInfo from './userInfo'
-import Username from './userName'
-import ChallengesCompleted from './challengesCompleted'
+import UserInfoClass from './userInfo'
+import ChallengesCompleted from './challengescompleted'
 
 class HomePageClass extends Component {
   constructor(props) {
@@ -26,27 +25,6 @@ class HomePageClass extends Component {
 
   componentDidMount() {
     this.setState({ loading: true });
-    this.listener = this.props.firebase.onAuthUserListener(
-      authUser => {
-        this.setState({ authUser });
-        localStorage.setItem('authUser', JSON.stringify(authUser));
-        this.unsubscribe = this.props.firebase.user(authUser.uid)
-          .onSnapshot(snapshot => {
-          let user = snapshot.data();
-          localStorage.setItem('user', JSON.stringify(user));
-          this.setState({
-            user: user,
-            loading: false,
-        });
-      });
-      },
-      () => {
-        localStorage.removeItem('authUser');
-        localStorage.removeItem('user');
-        this.setState({ authUser: null });
-      },
-    );
-
     this.unsubscribe = this.props.firebase
       .users()
       .orderBy('challengesCompleted', 'desc')
@@ -62,7 +40,6 @@ class HomePageClass extends Component {
           loading: false,
         });
       });
-
   }
 
   componentWillUnmount() {
@@ -70,7 +47,7 @@ class HomePageClass extends Component {
   }
   
   render() { 
-    const { user, highestScoreUserData, loading } = this.state;
+    const { highestScoreUserData, loading } = this.state;
     return(
       <AuthUserContext.Consumer>
         {authUser => (
@@ -78,12 +55,12 @@ class HomePageClass extends Component {
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           
           <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
-          Hey <span className="highlighted__text"><Username user={user}/></span>
+          Hey <span className="highlighted__text"><UserInfoClass/></span>
             </span>
           </h2>
           <h3>
             <span className="neumorphic__shadow neumorphic__shadow__padding">
-            You Completed <span className="highlighted__text"><ChallengesCompleted user={user}/></span> Challenges
+            You Completed <span className="highlighted__text"><ChallengesCompleted/></span> Challenges
             </span>
           </h3>
           <p className="neumorphic__shadow__padding">

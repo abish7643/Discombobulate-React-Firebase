@@ -1,15 +1,15 @@
 import React from 'react';
+import moment from 'moment/min/moment-with-locales'
 
 const UserList = ({ users }) => (
-    <div>
+    <React.Fragment>
       {users.map(user => (
-        <span key={user.uid}>
-          <p className="neumorphic__shadow neumorphic__shadow__padding">
-            <span className="highlighted__text">{user.username}</span> Joined
+          <p key={user.uid} className="neumorphic__shadow neumorphic__shadow__padding">
+          <span className="highlighted__text">{user.username}</span> <span className='muted__text'>
+            Joined {moment(user.AccountCreatedAt.toDate()).calendar()}</span>
           </p>
-        </span>
       ))}
-    </div>
+    </React.Fragment>
   );
 
 export default UserList

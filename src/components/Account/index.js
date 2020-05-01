@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AuthUserContext, withAuthorization } from '../Session';
 
-import UserInfoClass from '../Home/userInfo'
+import UserInfo from '../Home/userInfo'
 import PasswordChangeForm from '../PasswordChange';
 
 const AccountPage = () => (
@@ -10,7 +10,7 @@ const AccountPage = () => (
     {authUser => (
       <div className="container">
         <h1>Account</h1>
-        <h2>Hey, <span className="highlighted__text"><UserInfoClass/></span></h2>
+        <h2>Hey, <span className="highlighted__text"><UserInfo/></span></h2>
         <h4>Reset Your Password</h4>
         <PasswordChangeForm />
       </div>

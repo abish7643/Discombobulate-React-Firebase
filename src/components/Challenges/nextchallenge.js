@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
-import Username from './usernameattribute'
+import NextChallengeRender from './nextchallengeattribute'
 
-class UserInfo extends Component {
+class NextChallenge extends Component {
   constructor(props) {
     super(props);
     
@@ -26,7 +26,7 @@ class UserInfo extends Component {
         loading: false,
       });
     });
-  }
+    }
 }
 
   componentWillUnmount() {
@@ -38,10 +38,10 @@ class UserInfo extends Component {
 
     return (
       <React.Fragment>
-          <Username user={user}/>
+          <NextChallengeRender user={user}/>
       </React.Fragment>
     );
   }
 }
 
-export default withFirebase(UserInfo);
+export default withFirebase(NextChallenge);
