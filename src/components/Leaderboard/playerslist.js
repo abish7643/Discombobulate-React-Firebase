@@ -5,7 +5,6 @@ import PlayersListRender from './playerslistattribute'
 class PlayersList extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       loading: false,
       users: [],
@@ -21,7 +20,7 @@ class PlayersList extends Component {
       .limit(this.state.limit)
       .onSnapshot(snapshot => {
         let users = [];
-        
+
         snapshot.forEach(doc =>
           users.push({ ...doc.data(), uid: doc.id }),
         );
