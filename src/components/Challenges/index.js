@@ -86,7 +86,6 @@ class ChallengesPageClass extends Component {
 
     onChange = event => {
       this.setState({ [event.target.name]: event.target.value });
-      console.log(this.state.answerInput)
     };
   
     componentWillUnmount() {
@@ -95,8 +94,8 @@ class ChallengesPageClass extends Component {
 
   render() {
     const { answerInput, error, result } = this.state;
-      const isInvalid = answerInput === '';
     let questions = this.state.questionData;
+    const isInvalid = answerInput === '' || questions.number===4;
     const loading = this.state.loading;
     return (
       <AuthUserContext.Consumer>
@@ -110,8 +109,7 @@ class ChallengesPageClass extends Component {
             {loading && <ClipLoader size={25} color={'#4CB8A4'} loading={this.state.loading}/>}
             </div>
           </div>
-      
-        <div>
+        <div className={questions.number ===4 ? 'hidden__div' : ''}>
         <form className="formcontainer">
           <div className="form__group field">
             <input type="input"
@@ -125,9 +123,9 @@ class ChallengesPageClass extends Component {
             <label for="name" className="form__label">Enter Answer</label>
           </div>
           <button disabled={isInvalid} className="button__form__submit" onClick={this.onClick}>
-            Crack {loading && <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/>} </button>
-          <div className="error__div">{error && <p className="error__div__text">{error.message}</p>}</div>
-          <div className="error__div">{result && <p className="error__div__text">{result.data}</p>}</div>
+          {questions.number == 4 ? 'Completed' : 'Crack'} {loading && <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/>} </button>
+          <div className="error__div">{error && <p className="error__div__text smaller__text">{error.message}</p>}</div>
+          <div className="error__div">{result && <p className="error__div__text smaller__text muted__text">{result.data}</p>}</div>
         </form>
         </div>
       </div>

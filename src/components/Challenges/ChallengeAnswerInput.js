@@ -13,11 +13,11 @@ const INITIAL_STATE = {
     }
     onSubmit = event => {
       const { answerInput } = this.state;
-      //console.log(answerInput)
+      
     };
     onChange = event => {
       this.setState({ [event.target.name]: event.target.value });
-      //console.log(this.state.answerInput)
+      
     };
     render() {
       const { answerInput, error } = this.state;

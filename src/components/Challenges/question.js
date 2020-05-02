@@ -1,7 +1,7 @@
 import React from 'react';
 
 const QuestionRender = ({ questions }) => {
-    //console.log(questions);
+    
     if (questions === undefined){
         return <span className="highlighted__text">...</span>;
       }
