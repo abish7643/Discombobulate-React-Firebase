@@ -31,7 +31,6 @@ class ChallengesPageClass extends Component {
       ...INITIAL_STATE,
      }
     }
-
      componentDidMount() {
       this.setState({ loading: true });
       this.setState({result: null});
