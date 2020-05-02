@@ -75,7 +75,7 @@ class ChallengesPageClass extends Component {
       .then(result => {
         this.setState({result});
         this.setState({loading: false})
-        
+        this.setState({answerInput: ''})
       })
       .catch(error => {
         this.setState({ error });
