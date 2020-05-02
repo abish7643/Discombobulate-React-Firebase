@@ -103,7 +103,7 @@ class ChallengesPageClass extends Component {
         {authUser => (
       <div className='container'>
       <h1>Challenge <span className="highlighted__text">
-        {loading && <ClipLoader size={16} color={'#4CB8A4'} loading={this.state.loading}/>} {questions.number}</span></h1>
+        {loading && <ClipLoader size={16} color={'#4CB8A4'} loading={this.state.loading}/>} {questions.number == 4 ? 'Completed' : questions.number}</span></h1>
       <QuestionRender questions={questions}/>
       <div className='loader'>
             <div className='loader__inner'>

@@ -11,7 +11,7 @@ class PlayersList extends Component {
     this.state = {
       loading: false,
       users: [],
-      limit: 5,
+      limit: 6,
     };
   }
   componentDidMount() {
@@ -19,6 +19,7 @@ class PlayersList extends Component {
  
     this.unsubscribe = this.props.firebase
       .users()
+      .where('challengesCompleted', '>', 0)
       .orderBy('challengesCompleted', 'desc')
       .limit(this.state.limit)
       .onSnapshot(snapshot => {

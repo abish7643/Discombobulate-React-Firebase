@@ -30,20 +30,16 @@ exports.checkAnswer = functions.https.onCall((data, context)=>{
                         challengesCompleted: nextQuestionIfCorrect,
                         lastCorrectAnswerAt: FieldValue.serverTimestamp()
                     })
-                    console.log(`Correct Answer`)
                     return `Correct Answer`;
                 } else {
-                    console.log(`Wrong Answer`)
                     return `Wrong Answer`;
                 }
 
             } else {
-                console.log(`No Such Answer`)
                 return `No Such Answer`;
             }
 
         }).catch(function(error){ //Return Error
-            console.log('Error Getting Answer');
             return `Error Getting Answer`;
         });
 })
