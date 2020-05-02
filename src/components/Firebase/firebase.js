@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/functions'
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -19,6 +20,7 @@ const config = {
       
       this.auth = app.auth();
       this.db = app.firestore();
+      this.functions = app.functions();
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -59,6 +61,10 @@ const config = {
 
     createdAt = () => {
       return this.fieldValue.serverTimestamp()
+    }
+
+    checkAnswer = () => {
+      return this.functions.httpsCallable('checkAnswer');
     }
     
     user = uid => this.db.doc(`users/${uid}`);

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 import Challenges from './challengecompletedattribute'
+import {css} from "@emotion/core";
+import ClipLoader from "react-spinners/ClipLoader";
 
 class ChallengesCompleted extends Component {
   constructor(props) {
@@ -8,23 +10,21 @@ class ChallengesCompleted extends Component {
     
     this.state = {
       loading: false,
-      user: JSON.parse(localStorage.getItem('authUser')),
+      authUser: JSON.parse(localStorage.getItem('authUser')),
+      user: {},
     };
   }
 
   componentDidMount() {
     this.setState({ loading: true });
-    if (this.state.user === null){
-      this.unsubscribe = this.props.firebase.user()
+      this.unsubscribe = this.props.firebase.user(this.state.authUser.uid)
       .onSnapshot(snapshot => {
       let userData = snapshot.data();
-      localStorage.setItem('userData', JSON.stringify(userData));
       this.setState({
         user: userData,
         loading: false,
       });
     });
-  }
 }
 
   componentWillUnmount() {
@@ -36,6 +36,7 @@ class ChallengesCompleted extends Component {
 
     return (
       <React.Fragment>
+        {loading && <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/>}
           <Challenges user={user}/>
       </React.Fragment>
     );
