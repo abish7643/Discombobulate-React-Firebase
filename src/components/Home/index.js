@@ -55,23 +55,16 @@ class HomePageClass extends Component {
       <AuthUserContext.Consumer>
         {authUser => (
       <div className="container">
-        
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
-          
-          <h2><span className="neumorphic__shadow neumorphic__shadow__padding">
+          <h1>
           Hey <span className="highlighted__text"><UserInfoClass/></span>
-            </span>
-          </h2>
+          </h1>
           <h3>
             <span className="neumorphic__shadow neumorphic__shadow__padding">
             You Completed <span className="highlighted__text"><ChallengesCompleted/></span> Challenges
             </span>
           </h3>
           <p className="neumorphic__shadow__padding">
-            <span className="neumorphic__shadow neumorphic__shadow__padding">
-            Highest Achieved Score - {loading && <span><ClipLoader size={8} color={'#4CB8A4'} loading={this.state.loading}/></span>}
-            <LeadingUser highestUser={highestScoreUserData}/><br/>
-            </span>
             <p className="italic__text muted__text neumorphic__shadow neumorphic__shadow__padding">
               Doesn't Matter How Much You're Behind. You Can Pull Ahead No Matter What!
             </p>

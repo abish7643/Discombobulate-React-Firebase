@@ -8,7 +8,7 @@ const Leaderboard = () => (
     {firebase => {
       return(
         <div className="container">
-          <h1><span className="highlighted__text">Leaderboard</span></h1>
+          <h1><span className="">Leaderboard</span></h1>
           <PlayersList/>
         </div>
       )

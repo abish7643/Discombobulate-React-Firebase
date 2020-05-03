@@ -124,7 +124,7 @@ class ChallengesPageClass extends Component {
           </div>
           <button disabled={isInvalid} className="button__form__submit" onClick={this.onClick}>
           {questions.number == 4 ? 'Completed' : 'Crack'} {loading && <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/>} </button>
-          <div className="error__div">{error && <p className="error__div__text smaller__text">{error.message}</p>}</div>
+          <div className="error__div">{error && <p className="error__div__text muted__text smaller__text">{error.message}</p>}</div>
           <div className="error__div">{result && <p className="error__div__text smaller__text muted__text">{result.data}</p>}</div>
         </form>
         </div>

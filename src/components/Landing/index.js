@@ -44,14 +44,12 @@ class Landing extends Component {
     return (
       <div className="container">
         <h1>Newly Joined <span className="highlighted__text">Players</span></h1>
-        <div className='list'>
-          <div className='loader'>
-            <div className='loader__inner'>
+        <div className='loader'>
+          <div className='loader__inner'>
             {loading && <ClipLoader size={25} color={'#4CB8A4'} loading={this.state.loading}/>}
-            </div>  
-            </div>
-          <UserList users={users} />
+          </div>  
         </div>
+          <UserList users={users} />
       </div>
     );
   }

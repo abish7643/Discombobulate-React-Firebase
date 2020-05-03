@@ -1,5 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Route} from 'react-router-dom'
+import {Redirect, Switch} from 'react-router-dom' //For 404 Page Implementation
 
 import * as ROUTES from '../../constants/routes'
 //import { withFirebase } from '../Firebase';
@@ -19,11 +20,13 @@ import Rules from '../Rules';
 import Leaderboard from '../Leaderboard';
 import Footer from '../Footer'
 import ChallengesPage from '../Challenges';
+import NotFoundPage from '../NotFoundPage/notfoundpage';
 
 
 const App = () => (
   <Router>
     <Navigation/>
+    <Switch>
     <Route exact path={ROUTES.LANDING} component={LandingPage}/>
     <Route path={ROUTES.HOME} component={HomePage}/>
     <Route path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -34,6 +37,9 @@ const App = () => (
     <Route path={ROUTES.RULES} component={Rules} />
     <Route path={ROUTES.LEADERBOARD} component={Leaderboard} />
     <Route path={ROUTES.CHALLENGES} component={ChallengesPage} />
+    <Route path="/404" component={NotFoundPage} />
+    <Redirect to="/404" />
+    </Switch>
     <Footer/>
   </Router>
 );

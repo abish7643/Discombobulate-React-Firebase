@@ -87,6 +87,10 @@ h6{
   margin-bottom: 0;
 }
 
+.uppercase__text{
+  text-transform: capitalize;
+}
+
 .muted__text{
   opacity: 0.7;
 }
@@ -127,12 +131,18 @@ h6{
 .link__decoration{
   text-decoration: none;
 }
+.unhighlighted__text{
+  color: $secondary-color;
+}
 
 .text__center{
   text-align: center;
 }
 .text__left {
   text-align: left;
+}
+.text__right{
+  text-align: right;
 }
 .hidden__div{
   display: none;
@@ -164,6 +174,25 @@ h6{
     max-width: 430px;
     min-height: 240px;
   }
+  &__fullpage{
+    width: 100vw;
+    min-height: 600px;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media ($responsive-breakpoint-three){
+      min-height: 400px;
+    }
+    &__404{
+      font-size: 240px;
+      @media ($responsive-breakpoint-three){
+        font-size: 150px;
+      }
+    }
+
+  }
   @media ($responsive-breakpoint-three){
     width: unset;
   }
@@ -171,11 +200,26 @@ h6{
 
 .list{
   min-height: 240px;
+  width: 100%;
+  max-width: 400px;
+  &__inner{
+    display: grid;
+    grid-template-columns: auto 10% 35%;
+  }
+}
+.list__small{
+  width: 100%;
+  max-width: 350px;
+  min-height: 240px;
+  &__inner__joined{
+    display: grid;
+    grid-template-columns: auto 40%;
+  }
 }
 
 .loader {
   position: absolute;
-  height: 240px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
