@@ -61,7 +61,7 @@ class SignUpFormBase extends Component {
             lastCorrectAnswerAt,
             startChallenge,
             finishedChallenge,
-            challengeScore
+            challengeScore,
           },
           { merge: true },
           );

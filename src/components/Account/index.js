@@ -11,11 +11,11 @@ const AccountPage = () => (
       <div className="container">
         <h1>Account</h1>
         <div>
-          <p className='neumorphic__shadow neumorphic__shadow__padding muted__text'>
-            Name: <span className="highlighted__text"><UserInfo/></span>
+          <p className='neumorphic__shadow__padding'>
+            <span className='muted__text'>Name:</span> <span className="highlighted__text"><UserInfo/></span>
             </p>
-          <p className='neumorphic__shadow neumorphic__shadow__padding muted__text'>
-            Email: <span className="highlighted__text">{authUser.email}</span>
+          <p className='neumorphic__shadow__padding'>
+          <span className='muted__text'>Email:</span> <span className="highlighted__text">{authUser.email}</span>
             </p>
         </div>
         <h4 className='muted__text'>Reset Your Password</h4>
