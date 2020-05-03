@@ -39,10 +39,7 @@ class SignUpFormBase extends Component {
   onSubmit = event => {
     this.setState({ loading: true });
     const { username, email, passwordOne } = this.state;
-    const startChallenge = 0;
-    const finishedChallenge = 0;
     const challengesCompleted = 0;
-    const challengeScore = 0;
     const adminRole = 0;
     const lastCorrectAnswerAt = this.props.firebase.createdAt();
     const AccountCreatedAt = this.props.firebase.createdAt();
@@ -59,9 +56,6 @@ class SignUpFormBase extends Component {
             adminRole,
             challengesCompleted,
             lastCorrectAnswerAt,
-            startChallenge,
-            finishedChallenge,
-            challengeScore,
           },
           { merge: true },
           );
