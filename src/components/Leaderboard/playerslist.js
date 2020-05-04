@@ -11,7 +11,7 @@ class PlayersList extends Component {
     this.state = {
       loading: false,
       users: [],
-      limit: 6,
+      limit: 7,
     };
   }
   componentDidMount() {

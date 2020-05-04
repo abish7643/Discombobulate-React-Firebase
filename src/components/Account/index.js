@@ -12,9 +12,6 @@ const AccountPage = () => (
         <h1>Account</h1>
         <div>
           <p className='neumorphic__shadow__padding'>
-            <span className='muted__text'>Name:</span> <span className="highlighted__text"><UserInfo/></span>
-            </p>
-          <p className='neumorphic__shadow__padding'>
           <span className='muted__text'>Email:</span> <span className="highlighted__text">{authUser.email}</span>
             </p>
         </div>

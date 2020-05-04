@@ -5,7 +5,7 @@ import withAuthentication from '../Session/withAuthentication'
 const PlayersListRender = ({ users }) => (
     <React.Fragment>
     <p style={{maxWidth: '380px', width: '100%'}} className="list__inner neumorphic__shadow neumorphic__shadow__padding">
-    <span className="text__left uppercase__text">Players</span>
+    <span className="text__left uppercase__text">Player</span>
     <span className='muted__text text__center'>Score</span>
     <span className="muted__text text__right">Cracked At</span>
       </p>

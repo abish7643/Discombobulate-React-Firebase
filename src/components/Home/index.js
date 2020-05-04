@@ -6,7 +6,6 @@ import {compose} from 'recompose'
 import  { withFirebase } from '../Firebase';
 import { AuthUserContext, withAuthorization } from '../Session';
 
-import LeadingUser from './leadingUser'
 import UserInfoClass from './userInfo'
 import ChallengesCompleted from './challengescompleted'
 
