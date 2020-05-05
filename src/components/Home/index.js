@@ -43,7 +43,7 @@ class HomePageClass extends Component {
   }
   
   render() { 
-    const { highestScoreUserData, loading } = this.state;
+    const loading = this.state.loading;
     const randomQuote = this.state.quote
     return(
       <AuthUserContext.Consumer>
@@ -52,12 +52,13 @@ class HomePageClass extends Component {
         <div className='container__inner neumorphic__shadow neumorphic__shadow__padding'>
           <p className='title__withname'>
             Hey <span className="highlighted__text">
-            <Username user={this.state.user}/></span>
+            {loading === true ? <ClipLoader size={15} color={'#4CB8A4'} loading={loading}/> : <Username user={this.state.user}/>}</span>
           </p>
           <p>
             <span className="neumorphic__shadow neumorphic__shadow__padding">
             You Completed 
-            <span className="highlighted__text"> <Challenges user={this.state.user}/>
+            <span className="highlighted__text"> {loading === true ? <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/> : <Challenges user={this.state.user}/>}
+            
               </span> Challenges
             </span>
           </p>
@@ -70,7 +71,7 @@ class HomePageClass extends Component {
           </p>
           <Link to={ROUTES.CHALLENGES}>
           <button className="button__form__submit margin__bottom__20">
-              Continue <ClipLoader size={8} color={'#4CB8A4'} loading={this.state.loading}/>
+              Continue 
           </button>
           </Link>
         </div>

@@ -25,7 +25,6 @@ const INITIAL_STATE = {
   passwordTwo: '',
   error: null,
   loading: false,
-
 };
 
 class SignUpFormBase extends Component {
@@ -152,7 +151,7 @@ class SignUpFormBase extends Component {
           <label for="name" className="form__label">Confirm Password</label>
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Sign Up <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/></button>
-        {error && <p className="error__text">{error.message}</p>}
+        {error && <p className="error__text caution__text">{error.message}</p>}
       </form>
     );
   }

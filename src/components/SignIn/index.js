@@ -76,7 +76,7 @@ class SignInFormBase extends Component {
         </div>
         <button disabled={isInvalid} className="button__form__submit" type="submit">Sign In <ClipLoader size={8} 
         color={'#4CB8A4'} loading={loading}/></button>
-        <div className="error">{error && <p className="error__text">{error.message}</p>}</div>
+        <div className="error">{error && <p className="error__text caution__text">{error.message}</p>}</div>
       </form>
     );
   }

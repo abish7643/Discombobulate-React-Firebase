@@ -102,7 +102,7 @@ class ChallengesPageClass extends Component {
         {authUser => (
       <div className='container'>
       <h1>Challenge <span className="highlighted__text">
-        {loading && <ClipLoader size={16} color={'#4CB8A4'} loading={this.state.loading}/>} {questions.number == 4 ? 'Completed' : questions.number}</span></h1>
+        {loading === true ? <ClipLoader size={16} color={'#4CB8A4'} loading={this.state.loading}/> : questions.number == 4 ? 'Completed' : questions.number} </span></h1>
       <QuestionRender questions={questions}/>
       <div className='loader'>
             <div className='loader__inner'>
@@ -124,9 +124,9 @@ class ChallengesPageClass extends Component {
           </div>
           <button disabled={isInvalid} className="button__form__submit" onClick={this.onClick}>
           {questions.number == 4 ? 'Completed' : 'Crack'} {loading && <ClipLoader size={8} color={'#4CB8A4'} loading={loading}/>} </button>
-          <div className="error__div">{error && <p className="error__div__text muted__text smaller__text">{error.message}</p>}</div>
-          <div className="error__div">{result && <p className="error__div__text smaller__text muted__text">{result.data}</p>}</div>
         </form>
+        <div className="error__div">{error && <p className="error__div__text muted__text caution__text smaller__text">{error.message}</p>}</div>
+          <div className="error__div">{result && <p className="error__div__text highlighted__text  smaller__text muted__text">{result.data}</p>}</div>
         </div>
       </div>
     )}
