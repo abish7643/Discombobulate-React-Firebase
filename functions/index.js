@@ -19,7 +19,7 @@ exports.checkAnswer = functions.https.onCall((data, context)=>{
         const validateQuestionString = validateQuestion.toString();
         const userID = context.auth.uid;
         const serverCustomTimeStamp = Date.now();
-        let reversedTimeStamp = serverCustomTimeStamp.toString().split('').reverse().join('')
+        let reversedTimeStamp = 10000000000000 - serverCustomTimeStamp;
 
         //Get Corresponding Answer
         return admin.firestore().collection('answers').doc(validateQuestionString)
@@ -31,7 +31,7 @@ exports.checkAnswer = functions.https.onCall((data, context)=>{
                     admin.database().ref(`users/${userID}`).update({
                         challengesCompleted: nextQuestionIfCorrect,
                         lastCorrectAnswerAtRealDb: RealDbTimeStamp.TIMESTAMP,
-                        timeStampAndChallengeCompleted: `${nextQuestionIfCorrect}_${reversedTimeStamp}`
+                        timeStampAndChallengeCompleted: `${nextQuestionIfCorrect}${reversedTimeStamp}`
                     })
                     admin.firestore().collection('users').doc(userID)
                     .update({
