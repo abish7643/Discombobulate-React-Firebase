@@ -41,12 +41,23 @@ class SignUpFormBase extends Component {
     const { username, email, passwordOne } = this.state;
     const challengesCompleted = 0;
     const adminRole = 0;
+    const timeStampAndChallengeCompleted = 0;
+    const lastCorrectAnswerAtRealDb = this.props.firebase.createdAtReadDb();
     const lastCorrectAnswerAt = this.props.firebase.createdAt();
     const AccountCreatedAt = this.props.firebase.createdAt();
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        // Create a user in your Firestore
+        // Create a user in your Real Time Database
+        this.props.firebase
+          .userRealDb(authUser.user.uid)
+          .set({
+            username,
+            challengesCompleted,
+            lastCorrectAnswerAtRealDb,
+            timeStampAndChallengeCompleted
+          })
+          // Create a user in your Firestore
         return this.props.firebase
           .user(authUser.user.uid)
           .set({
@@ -58,8 +69,10 @@ class SignUpFormBase extends Component {
             lastCorrectAnswerAt,
           },
           { merge: true },
-          );
+          )
+        
       })
+      
       .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);

@@ -15,7 +15,7 @@ const PlayersListRender = ({ users }) => (
         <p className="list__inner neumorphic__shadow neumorphic__shadow__padding">
         <span className="highlighted__text text__left">{user.username} </span>
         <span className='muted__text text__center'> {user.challengesCompleted} </span>
-        <span className="muted__text smaller__text text__right"> ({moment(user.lastCorrectAnswerAt.toDate()).fromNow()})</span>
+        <span className="muted__text smaller__text text__right"> ({moment(user.lastCorrectAnswerAtRealDb).fromNow()})</span>
           </p>
         </span>
       ))}

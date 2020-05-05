@@ -12,7 +12,7 @@ class Landing extends Component {
     this.state = {
       loading: false,
       users: [],
-      limit: 5,
+      limit: 3,
     };
   }
   componentDidMount() {

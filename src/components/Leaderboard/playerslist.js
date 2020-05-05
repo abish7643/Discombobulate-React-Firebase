@@ -11,33 +11,29 @@ class PlayersList extends Component {
     this.state = {
       loading: false,
       users: [],
-      limit: 7,
+      limit: 10,
     };
   }
   componentDidMount() {
     this.setState({ loading: true });
- 
-    this.unsubscribe = this.props.firebase
-      .users()
-      .where('challengesCompleted', '>', 0)
-      .orderBy('challengesCompleted', 'desc')
-      .limit(this.state.limit)
-      .onSnapshot(snapshot => {
-        let users = [];
+    
+    let usersList = [];
 
-        snapshot.forEach(doc =>
-          users.push({ ...doc.data(), uid: doc.id }),
-        );
- 
-        this.setState({
-          users,
-          loading: false,
-        });
+    this.props.firebase.usersRealDb()
+    .limitToLast(this.state.limit)
+    .orderByChild("timeStampAndChallengeCompleted")
+      .on('child_added', snapshot => {
+      usersList.unshift(snapshot.val());
+
+      this.setState({
+        users: usersList,
+        loading: false,
       });
+    });
   }
  
   componentWillUnmount() {
-    this.unsubscribe();
+    this.props.firebase.usersRealDb().off();
   }
   render() {
     const { users, loading } = this.state;

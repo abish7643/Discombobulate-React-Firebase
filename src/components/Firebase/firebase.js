@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/database'
 import 'firebase/functions'
 
 const config = {
@@ -17,9 +18,12 @@ const config = {
       app.initializeApp(config);
 
       this.fieldValue = app.firestore.FieldValue;
+
+      this.timeStampRealDb = app.database.ServerValue;
       
       this.auth = app.auth();
       this.db = app.firestore();
+      this.realDb = app.database();
       this.functions = app.functions();
     }
 
@@ -63,12 +67,20 @@ const config = {
       return this.fieldValue.serverTimestamp()
     }
 
+    createdAtReadDb = () => {
+      return this.timeStampRealDb.TIMESTAMP
+    }
+
     checkAnswer = () => {
       return this.functions.httpsCallable('checkAnswer');
     }
     
     user = uid => this.db.doc(`users/${uid}`);
     users = () => this.db.collection('users');
+
+
+    userRealDb = uid => this.realDb.ref(`users/${uid}`)
+    usersRealDb = () => this.realDb.ref('users')
 
     question = questionID => this.db.doc(`questions/${questionID}`);
     questions = () => this.db.collection(`questions`);
