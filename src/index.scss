@@ -173,6 +173,7 @@ h6{
     flex-direction: column;
     max-width: 430px;
     min-height: 240px;
+    min-width: 300px;
   }
   &__fullpage{
     width: 100vw;
@@ -215,6 +216,22 @@ h6{
     display: grid;
     grid-template-columns: auto 50%;
   }
+}
+
+.quote{
+  margin: 0;
+  margin-bottom: 20px;
+  min-width: 300px;
+}
+
+.title__withname{
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.margin__bottom__20{
+  margin-bottom: 20px;
 }
 
 .loader {

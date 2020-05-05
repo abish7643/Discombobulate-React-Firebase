@@ -1,8 +1,6 @@
 import React from 'react';
 
 import { AuthUserContext, withAuthorization } from '../Session';
-
-import UserInfo from '../Home/userInfo'
 import PasswordChangeForm from '../PasswordChange';
 
 const AccountPage = () => (
