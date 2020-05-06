@@ -4,20 +4,18 @@ import withAuthentication from '../Session/withAuthentication'
 
 const PlayersListRender = ({ users }) => (
     <React.Fragment>
-    <p style={{maxWidth: '380px', width: '100%'}} className="list__inner neumorphic__shadow neumorphic__shadow__padding">
+    <p style={{maxWidth: '380px', width: '95%'}} className="list__inner neumorphic__shadow neumorphic__shadow__padding">
     <span className="text__left uppercase__text">Player</span>
     <span className='muted__text text__center'>Score</span>
     <span className="muted__text text__right">Cracked At</span>
       </p>
     <div className='list'>
       {users.map(user => (
-        <span key={user.uid}>
-        <p className="list__inner neumorphic__shadow neumorphic__shadow__padding">
+        <p key={user.uid} className="list__inner neumorphic__shadow neumorphic__shadow__padding">
         <span className="highlighted__text text__left">{user.username} </span>
         <span className='muted__text text__center'> {user.challengesCompleted} </span>
         <span className="muted__text smaller__text text__right"> ({moment(user.lastCorrectAnswerAtRealDb).fromNow()})</span>
           </p>
-        </span>
       ))}
     </div>
     </React.Fragment>
