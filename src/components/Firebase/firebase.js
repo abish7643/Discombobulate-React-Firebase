@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/database'
 import 'firebase/functions'
+import 'firebase/analytics'
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -12,7 +13,7 @@ const config = {
     storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_ID,
-    measurementId: `G-${process.env.REACT_MEA_ID}`,
+    measurementId: "G-V3V0XCYG26",
 };
 
   class Firebase {
@@ -27,6 +28,7 @@ const config = {
       this.db = app.firestore();
       this.realDb = app.database();
       this.functions = app.functions();
+      this.analytics = app.analytics();
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
