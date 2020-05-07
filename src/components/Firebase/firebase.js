@@ -3,7 +3,6 @@ import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/database'
 import 'firebase/functions'
-import 'firebase/analytics'
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -28,7 +27,6 @@ const config = {
       this.db = app.firestore();
       this.realDb = app.database();
       this.functions = app.functions();
-      this.analytics = app.analytics()
     }
 
     doCreateUserWithEmailAndPassword = (email, password) =>
