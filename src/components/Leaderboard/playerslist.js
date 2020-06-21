@@ -14,17 +14,17 @@ class PlayersList extends Component {
       limit: 10,
     };
   }
+
   componentDidMount() {
     this.setState({ loading: true });
-    
     let usersList = [];
-
     this.props.firebase.usersRealDb()
     .limitToLast(this.state.limit)
     .orderByChild("timeStampAndChallengeCompleted")
       .on('child_added', snapshot => {
       usersList.unshift(snapshot.val());
-
+      console.log(usersList);
+      
       this.setState({
         users: usersList,
         loading: false,
