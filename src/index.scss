@@ -99,12 +99,13 @@ h6 {
 }
 
 .button__form__submit {
+  min-width: 160px;
   font-size: 14px;
   text-transform: uppercase;
   margin: 10px;
   margin-top: 15px;
   margin-bottom: 6px;
-  padding: 6px 20px;
+  padding: 10px 20px;
   background-color: $background-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow-1, $box-shadow-2;

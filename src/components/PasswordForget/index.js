@@ -9,7 +9,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 const PasswordForgetPage = () => (
   <div className="container">
     <h1>
-      Rejenuvate Your <span className="highlighted__text">Password</span>
+      Retrieve Your <span className="highlighted__text">Password</span>
     </h1>
     <PasswordForgetForm />
   </div>
