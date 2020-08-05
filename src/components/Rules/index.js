@@ -1,10 +1,9 @@
-import React from 'react';
-
+import React from "react";
 
 const Rules = () => (
-  <div className='container'>
+  <div className="container">
     <h1>Rules</h1>
-    <div className='container__inner'>
+    <div className="container__inner">
       <p>To Be Added Soon</p>
     </div>
   </div>

@@ -1,20 +1,22 @@
-import React from 'react';
-import  { FirebaseContext } from '../Firebase';
-import { withAuthorization } from '../Session';
-import PlayersList from './playerslist'
+import React from "react";
+import { FirebaseContext } from "../Firebase";
+import { withAuthorization } from "../Session";
+import PlayersList from "./playerslist";
 
 const Leaderboard = () => (
   <FirebaseContext.Consumer>
-    {firebase => {
-      return(
+    {(firebase) => {
+      return (
         <div className="container">
-          <h1><span className="">Leaderboard</span></h1>
-          <PlayersList/>
+          <h1>
+            <span className="">Leaderboard</span>
+          </h1>
+          <PlayersList />
         </div>
-      )
+      );
     }}
   </FirebaseContext.Consumer>
 );
 
-const condition = authUser => !!authUser;
+const condition = (authUser) => !!authUser;
 export default withAuthorization(condition)(Leaderboard);

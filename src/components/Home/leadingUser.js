@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const LeadingUser = ({ highestUser }) => (
-    <React.Fragment>
-      {highestUser.map(highestScoredUser => (
-        <span key={highestScoredUser.username}>
-            <span className="highlighted__text">{highestScoredUser.challengesCompleted} ({highestScoredUser.username})</span>
+  <React.Fragment>
+    {highestUser.map((highestScoredUser) => (
+      <span key={highestScoredUser.username}>
+        <span className="highlighted__text">
+          {highestScoredUser.challengesCompleted} ({highestScoredUser.username})
         </span>
-      ))}
-    </React.Fragment>
-  );
+      </span>
+    ))}
+  </React.Fragment>
+);
 
-export default LeadingUser
+export default LeadingUser;

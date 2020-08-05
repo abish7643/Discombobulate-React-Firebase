@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Username = ({ user }) => {
-  if (user === null){
+  if (user === null) {
     return <span className="highlighted__text"></span>;
   }
-  return (<span className="highlighted__text">{user.username}</span>);
+  return <span className="highlighted__text">{user.username}</span>;
 };
 
 export default Username;

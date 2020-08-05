@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { withFirebase } from '../Firebase';
-import PlayersListRender from './playerslistattribute'
+import React, { Component } from "react";
+import { withFirebase } from "../Firebase";
+import PlayersListRender from "./playerslistattribute";
 
-import {css} from "@emotion/core";
+import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 class PlayersList extends Component {
@@ -18,37 +18,43 @@ class PlayersList extends Component {
   componentDidMount() {
     this.setState({ loading: true });
     let usersList = [];
-    this.props.firebase.usersRealDb()
-    .limitToLast(this.state.limit)
-    .orderByChild("timeStampAndChallengeCompleted")
-      .on('child_added', snapshot => {
-      usersList.unshift(snapshot.val());
-      console.log(usersList);
-      
-      this.setState({
-        users: usersList,
-        loading: false,
+    this.props.firebase
+      .usersRealDb()
+      .limitToLast(this.state.limit)
+      .orderByChild("timeStampAndChallengeCompleted")
+      .on("child_added", (snapshot) => {
+        usersList.unshift(snapshot.val());
+        console.log(usersList);
+
+        this.setState({
+          users: usersList,
+          loading: false,
+        });
       });
-    });
   }
- 
+
   componentWillUnmount() {
     this.props.firebase.usersRealDb().off();
   }
   render() {
     const { users, loading } = this.state;
-    return (  
-        <React.Fragment>
-          <div className='loader'>
-            <div className='loader__inner'>
-            {loading && <ClipLoader size={25} color={'#4CB8A4'} loading={this.state.loading}/>}
-            </div>
+    return (
+      <React.Fragment>
+        <div className="loader">
+          <div className="loader__inner">
+            {loading && (
+              <ClipLoader
+                size={25}
+                color={"#4CB8A4"}
+                loading={this.state.loading}
+              />
+            )}
           </div>
-          <PlayersListRender users={users} />
-        </React.Fragment>
+        </div>
+        <PlayersListRender users={users} />
+      </React.Fragment>
     );
   }
 }
-
 
 export default withFirebase(PlayersList);
