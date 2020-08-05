@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const PasswordForgetPage = () => (
@@ -49,7 +49,6 @@ class PasswordForgetFormBase extends Component {
       <form onSubmit={this.onSubmit} className="formcontainer">
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="email"
             value={this.state.email}

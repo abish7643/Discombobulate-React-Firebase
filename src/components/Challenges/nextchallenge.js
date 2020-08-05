@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "../Firebase";
 import NextChallengeRender from "./nextchallengeattribute";
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 class NextChallenge extends Component {

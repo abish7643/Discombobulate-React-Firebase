@@ -6,7 +6,7 @@ import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 import "./signup.scss";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const SignUpPage = () => (
@@ -103,7 +103,6 @@ class SignUpFormBase extends Component {
       <form onSubmit={this.onSubmit} className="formcontainer">
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="username"
             value={username}
@@ -118,7 +117,6 @@ class SignUpFormBase extends Component {
         </div>
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="email"
             value={email}
@@ -133,7 +131,6 @@ class SignUpFormBase extends Component {
         </div>
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="passwordOne"
             value={passwordOne}
@@ -148,7 +145,6 @@ class SignUpFormBase extends Component {
         </div>
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="passwordTwo"
             value={passwordTwo}

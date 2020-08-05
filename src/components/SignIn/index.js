@@ -5,7 +5,7 @@ import { withFirebase } from "../Firebase";
 import * as ROUTES from "../../constants/routes";
 
 import { PasswordForgetLink } from "../PasswordForget";
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const SignInPage = () => (
@@ -55,7 +55,6 @@ class SignInFormBase extends Component {
       <form onSubmit={this.onSubmit} className="formcontainer">
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="email"
             value={email}
@@ -70,7 +69,6 @@ class SignInFormBase extends Component {
         </div>
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="password"
             value={password}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withFirebase } from "../Firebase";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const INITIAL_STATE = {
@@ -40,7 +40,6 @@ class PasswordChangeForm extends Component {
       <form onSubmit={this.onSubmit} className="formcontainer">
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="passwordOne"
             value={passwordOne}
@@ -55,7 +54,6 @@ class PasswordChangeForm extends Component {
         </div>
         <div className="form__group field">
           <input
-            type="input"
             className="form__field"
             name="passwordTwo"
             value={passwordTwo}

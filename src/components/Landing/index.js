@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withFirebase } from "../Firebase";
 import UserList from "./userList";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 class Landing extends Component {

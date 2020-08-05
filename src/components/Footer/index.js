@@ -8,6 +8,7 @@ const Footer = () => (
         <a
           className="link__decoration highlighted__text"
           target="_blank"
+          rel="noopener noreferrer"
           href="https://3iinc.xyz"
         >
           {" "}

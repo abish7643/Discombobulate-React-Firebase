@@ -6,7 +6,7 @@ import { compose } from "recompose";
 import { withFirebase } from "../Firebase";
 import { AuthUserContext, withAuthorization } from "../Session";
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 import Username from "./usernameattribute";
 import Challenges from "./challengecompletedattribute";

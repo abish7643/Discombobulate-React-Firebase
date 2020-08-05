@@ -8,7 +8,7 @@ import QuestionRender from "./question";
 
 //const questionAsImageURL = 'https://i.ibb.co/zGNNf6k/1.png';
 
-import { css } from "@emotion/core";
+// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const INITIAL_STATE = {
@@ -107,7 +107,7 @@ class ChallengesPageClass extends Component {
                     color={"#4CB8A4"}
                     loading={this.state.loading}
                   />
-                ) : questions.number == 4 ? (
+                ) : questions.number === 4 ? (
                   "Completed"
                 ) : (
                   questions.number
@@ -130,7 +130,6 @@ class ChallengesPageClass extends Component {
               <form className="formcontainer">
                 <div className="form__group field">
                   <input
-                    type="input"
                     className="form__field"
                     name="answerInput"
                     value={this.state.answerInput}
@@ -148,7 +147,7 @@ class ChallengesPageClass extends Component {
                   className="button__form__submit"
                   onClick={this.onClick}
                 >
-                  {questions.number == 4 ? "Completed" : "Crack"}{" "}
+                  {questions.number === 4 ? "Completed" : "Crack"}{" "}
                   {loading && (
                     <ClipLoader size={8} color={"#4CB8A4"} loading={loading} />
                   )}{" "}

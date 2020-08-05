@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment/min/moment-with-locales";
-import withAuthentication from "../Session/withAuthentication";
+// import withAuthentication from "../Session/withAuthentication";
 
 const PlayersListRender = ({ users }) => (
   <React.Fragment>
