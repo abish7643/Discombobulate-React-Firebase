@@ -1,9 +1,9 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 body {
   margin: 0;
-  font-family: 'Roboto', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Roboto", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-color;
@@ -14,26 +14,25 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.form__bottom__links{
+.form__bottom__links {
   margin-top: 10px;
   font-size: 14px;
   margin-bottom: 0px;
-  
 }
 
-.neumorphic__shadow{
+.neumorphic__shadow {
   border-radius: $border-radius;
   box-shadow: $box-shadow-1, $box-shadow-2;
-  &__padding{
+  &__padding {
     padding: 5px 10px;
   }
 }
 
-h1{
+h1 {
   color: $secondary-color;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -42,32 +41,32 @@ h1{
   padding: 10px 15px;
   border-radius: $border-radius;
   box-shadow: $box-shadow-1, $box-shadow-2;
-  @media ($responsive-breakpoint-three){
-      font-size: 24px;
+  @media ($responsive-breakpoint-three) {
+    font-size: 24px;
   }
 }
 
-h2{
+h2 {
   font-size: 22px;
   line-height: 32px;
-  @media ($responsive-breakpoint-three){
+  @media ($responsive-breakpoint-three) {
     font-size: 18px;
   }
 }
 
-h3{
+h3 {
   font-weight: 500;
-  @media ($responsive-breakpoint-three){
+  @media ($responsive-breakpoint-three) {
     font-size: 16px;
   }
 }
 
-h4{
+h4 {
   font-weight: 500;
   margin: 6px;
 }
 
-h6{
+h6 {
   color: $secondary-color;
   margin: 0px 0px;
   padding: 0 10px;
@@ -76,30 +75,30 @@ h6{
   -webkit-text-fill-color: transparent;
 }
 
-.highlighted__text{
+.highlighted__text {
   background: $highlighted-text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.italic__text{
+.italic__text {
   font-style: italic;
   margin-bottom: 0;
 }
 
-.uppercase__text{
+.uppercase__text {
   text-transform: capitalize;
 }
 
-.muted__text{
+.muted__text {
   opacity: 0.7;
 }
 
-.smaller__text{
+.smaller__text {
   font-size: 14px;
 }
 
-.button__form__submit{
+.button__form__submit {
   font-size: 14px;
   text-transform: uppercase;
   margin: 10px;
@@ -112,43 +111,43 @@ h6{
   border: 0px solid $background-color;
   transition: ease-in 0.2s;
   outline: 0;
-  &:disabled{
+  &:disabled {
     color: unset;
 
-    &:hover{
+    &:hover {
       cursor: unset;
     }
   }
-  &:enabled{
+  &:enabled {
     color: $highlighted-text-color-one;
     cursor: pointer;
-    &:hover{
-        box-shadow: $box-shadow-inset1, $box-shadow-inset2;
+    &:hover {
+      box-shadow: $box-shadow-inset1, $box-shadow-inset2;
     }
   }
 }
 
-.link__decoration{
+.link__decoration {
   text-decoration: none;
 }
-.unhighlighted__text{
+.unhighlighted__text {
   color: $secondary-color;
 }
 
-.text__center{
+.text__center {
   text-align: center;
 }
 .text__left {
   text-align: left;
 }
-.text__right{
+.text__right {
   text-align: right;
 }
-.hidden__div{
+.hidden__div {
   display: none;
 }
 
-.container{
+.container {
   margin: 0px 20px;
   margin-top: 100px;
   display: flex;
@@ -156,17 +155,17 @@ h6{
   align-items: center;
   flex-direction: column;
 
-  &__signup{
+  &__signup {
     margin: 10px;
   }
-  @media ($responsive-breakpoint-two){
-      margin-top: 70px;
+  @media ($responsive-breakpoint-two) {
+    margin-top: 70px;
   }
-  @media ($responsive-breakpoint-three){
-      margin-top: 40px;
+  @media ($responsive-breakpoint-three) {
+    margin-top: 40px;
   }
 
-  &__inner{
+  &__inner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -175,7 +174,7 @@ h6{
     min-height: 240px;
     min-width: 300px;
   }
-  &__fullpage{
+  &__fullpage {
     width: 100vw;
     min-height: 600px;
     max-width: 1000px;
@@ -183,55 +182,54 @@ h6{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    @media ($responsive-breakpoint-three){
+    @media ($responsive-breakpoint-three) {
       min-height: 400px;
     }
-    &__404{
+    &__404 {
       font-size: 240px;
-      @media ($responsive-breakpoint-three){
+      @media ($responsive-breakpoint-three) {
         font-size: 150px;
       }
     }
-
   }
-  @media ($responsive-breakpoint-three){
+  @media ($responsive-breakpoint-three) {
     width: unset;
   }
 }
 
-.list{
+.list {
   min-height: 240px;
   width: 100%;
   max-width: 400px;
-  &__inner{
+  &__inner {
     display: grid;
     grid-template-columns: auto 10% 35%;
   }
 }
-.list__small{
+.list__small {
   width: 100%;
   max-width: 350px;
   min-height: 240px;
-  &__inner__joined{
+  &__inner__joined {
     display: grid;
     grid-template-columns: auto 50%;
   }
 }
 
-.quote{
+.quote {
   margin: 0;
   margin-bottom: 20px;
   min-width: 300px;
 }
 
-.title__withname{
+.title__withname {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 15px;
   min-width: 100px;
 }
 
-.margin__bottom__20{
+.margin__bottom__20 {
   margin-bottom: 20px;
 }
 
@@ -243,64 +241,68 @@ h6{
   justify-content: center;
 }
 
-.error{
+.error {
   display: flex;
   align-items: center;
   justify-content: center;
-  &__text{
+  &__text {
     font-size: 14px;
     text-align: center;
     opacity: 0.7;
     margin: 4px;
     max-width: 300px;
+    color: #a69e31;
   }
-  &__div{
+  &__div {
     text-align: center;
   }
-  }
+}
 
-.loading__animation{
+.loading__animation {
   animation-name: example;
   animation-duration: 4s;
 }
 
 @keyframes example {
-  from {color: $primary-color;}
-  to {color: $highlighted-text-color-one;}
+  from {
+    color: $primary-color;
+  }
+  to {
+    color: $highlighted-text-color-one;
+  }
 }
 
-.imagecontainer{
+.imagecontainer {
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  &__img{
-    
+  &__img {
     background-position: center;
     background-repeat: no-repeat;
     width: 80%;
     min-height: 230px;
-    @media ($responsive-breakpoint-three){
+    @media ($responsive-breakpoint-three) {
       width: 95%;
     }
   }
-  &__img[alt]{
+  &__img[alt] {
     color: $secondary-color;
     font-size: 12px;
     font-style: italic;
     text-align: center;
   }
-  &__caption{
+  &__caption {
     opacity: 0.6;
     margin: 10px 0px;
     max-width: 450px;
     text-align: center;
-  @media ($responsive-breakpoint-three){
-    margin: 0;
-    margin-top: 10px;
-    width: 90%;
-  }
+    @media ($responsive-breakpoint-three) {
+      margin: 0;
+      margin-top: 10px;
+      width: 90%;
+    }
   }
 }
