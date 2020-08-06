@@ -1,5 +1,9 @@
 @import "../../variables.scss";
 
+.active {
+  border-bottom: 1px solid $highlighted-text-color-one;
+}
+
 .navigationbar {
   width: 100%;
   margin-top: 15px;
@@ -30,6 +34,7 @@
       justify-content: center;
       font-size: 32px;
       font-weight: 700;
+      border-bottom: none;
       &__link {
         margin: 5px 5px;
         border-radius: $border-radius;
