@@ -1,12 +1,17 @@
 import React from "react";
+import "./rules.scss";
+import ReactMarkdown from "react-markdown";
+import rulesmarkdown from "./rulesmarkdown";
 
-const Rules = () => (
-  <div className="container">
-    <h1>Rules</h1>
-    <div className="container__inner">
-      <p>To Be Added Soon</p>
+export default function Rules() {
+  const markdown = rulesmarkdown;
+
+  return (
+    <div className="container">
+      <h1>Rules</h1>
+      <div className="rules__markdown">
+        <ReactMarkdown source={markdown} />
+      </div>
     </div>
-  </div>
-);
-
-export default Rules;
+  );
+}

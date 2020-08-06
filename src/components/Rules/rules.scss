@@ -1,0 +1,116 @@
+@import "../../variables.scss";
+
+.rules__markdown {
+  max-width: 950px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+  line-height: 1.5;
+  color: $text-color;
+  p {
+    margin: 0;
+    margin-top: 15px;
+    font-weight: 300;
+    font-size: 18px;
+    @media ($responsive-breakpoint-three) {
+      font-size: 16px;
+    }
+  }
+  blockquote {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    p {
+      font-size: 20px;
+      text-decoration: underline;
+    }
+  }
+  strong {
+    font-weight: 400;
+  }
+  a {
+    color: $highlighted-text-color-two;
+    font-weight: 400;
+  }
+  hr {
+    margin: 0;
+    margin-top: 15px;
+  }
+  h1 {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 32px;
+  }
+  h2 {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 28px;
+    @media ($responsive-breakpoint-three) {
+      font-size: 26px;
+    }
+  }
+  h3 {
+    margin: 0;
+    margin-top: 20px;
+    color: $highlighted-text-color-one;
+    font-size: 24px;
+  }
+  h4 {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 22px;
+  }
+  h5 {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 20px;
+  }
+  h6 {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  img {
+    margin: 0;
+    margin: 20px 0;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: $box-shadow-1;
+    @media ($responsive-breakpoint-three) {
+      margin: 10px 0;
+    }
+  }
+  ul {
+    margin: 0;
+    margin-top: 20px;
+    font-size: 18px;
+    @media ($responsive-breakpoint-three) {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+  }
+  table {
+    min-width: 400px;
+    margin: 25px 0px;
+    @media ($responsive-breakpoint-three) {
+      min-width: unset;
+      margin: 15px 0;
+      width: 100%;
+    }
+  }
+  th {
+    font-size: 16px;
+    padding: 1px 5px;
+    border: 1px solid $highlighted-text-color-one;
+  }
+  td {
+    font-size: 16px;
+    border: 1px solid #323232;
+    padding: 1px 5px;
+  }
+  @media ($responsive-breakpoint-three) {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 0px;
+    line-height: 1.4;
+  }
+}
