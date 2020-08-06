@@ -11,7 +11,7 @@ const rulesmarkdown = `
 
   Proin rutrum lacus scelerisque sapien sollicitudin, volutpat pretium enim lacinia. Aliquam nisl nisl, porta ut turpis et, fringilla commodo mauris. 
   Nulla semper molestie rhoncus. Sed bibendum tortor risus, quis sollicitudin lectus aliquam. 
-  Praesent sed eros ac magna sodales volutpat non vel metus.
+  Praesent sed eros ac magna sodales **volutpat non vel metus**.
 
   | Syntax | Description |
   | ----------- | ----------- |
@@ -20,7 +20,7 @@ const rulesmarkdown = `
 
 
   It can’t cover every edge case, so if you need more information about any of these elements, 
-  refer to the reference guides for basic syntax and extended syntax.
+  refer to the reference guides for **basic syntax and extended syntax**.
   Sed bibendum tortor risus, quis sollicitudin lectus aliquam. Ut in imperdiet massa. 
   Maecenas augue ipsum, pulvinar sit amet finibus in, ac nunc. Suspendisse elementum in [3i INC](https://3iinc.xyz). 
 

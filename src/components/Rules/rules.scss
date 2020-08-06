@@ -26,6 +26,7 @@
   }
   strong {
     font-weight: 400;
+    color: $highlighted-text-color-two;
   }
   a {
     color: $highlighted-text-color-two;
@@ -44,6 +45,7 @@
     margin: 0;
     margin-top: 20px;
     font-size: 28px;
+
     @media ($responsive-breakpoint-three) {
       font-size: 26px;
     }
@@ -51,7 +53,7 @@
   h3 {
     margin: 0;
     margin-top: 20px;
-    color: $highlighted-text-color-one;
+    text-decoration: underline;
     font-size: 24px;
   }
   h4 {
