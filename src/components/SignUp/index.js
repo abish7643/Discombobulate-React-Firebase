@@ -157,7 +157,7 @@ class SignUpFormBase extends Component {
             Confirm Password
           </label>
         </div>
-        {error && <p className="error__text caution__text">{error.message}</p>}
+        {error && <p className="error__text">{error.message}</p>}
         <button
           disabled={isInvalid}
           className="button__form__submit"

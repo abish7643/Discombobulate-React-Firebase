@@ -3,7 +3,7 @@ import { withFirebase } from "../Firebase";
 import PlayersListRender from "./playerslistattribute";
 
 // import { css } from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 class PlayersList extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class PlayersList extends Component {
       .orderByChild("timeStampAndChallengeCompleted")
       .on("child_added", (snapshot) => {
         usersList.unshift(snapshot.val());
-        console.log(usersList);
+        // console.log(usersList);
 
         this.setState({
           users: usersList,
@@ -41,10 +41,10 @@ class PlayersList extends Component {
     return (
       <React.Fragment>
         <div className="loader">
-          <div className="loader__inner">
+          <div className="loader__inner" style={{ marginTop: "40px" }}>
             {loading && (
-              <ClipLoader
-                size={25}
+              <ClimbingBoxLoader
+                size={15}
                 color={"#4CB8A4"}
                 loading={this.state.loading}
               />

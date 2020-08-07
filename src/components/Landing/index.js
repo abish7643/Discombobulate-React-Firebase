@@ -3,7 +3,7 @@ import { withFirebase } from "../Firebase";
 import UserList from "./userList";
 
 // import { css } from "@emotion/core";
-import ClipLoader from "react-spinners/ClipLoader";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 class Landing extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Landing extends Component {
     this.state = {
       loading: false,
       users: [],
-      limit: 3,
+      limit: 2,
     };
   }
   componentDidMount() {
@@ -47,8 +47,8 @@ class Landing extends Component {
         <div className="loader">
           <div className="loader__inner">
             {loading && (
-              <ClipLoader
-                size={25}
+              <ClimbingBoxLoader
+                size={15}
                 color={"#4CB8A4"}
                 loading={this.state.loading}
               />

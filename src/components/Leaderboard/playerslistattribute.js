@@ -15,7 +15,7 @@ const PlayersListRender = ({ users }) => (
     <div className="list">
       {users.map((user) => (
         <p
-          key={user.uid}
+          key={user.username}
           className="list__inner neumorphic__shadow neumorphic__shadow__padding"
         >
           <span className="highlighted__text text__left">{user.username} </span>

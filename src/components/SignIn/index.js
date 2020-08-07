@@ -63,7 +63,7 @@ class SignInFormBase extends Component {
             placeholder="Email Address"
             required
           />
-          <label for="name" className="form__label">
+          <label htmlFor="name" className="form__label">
             Email Address
           </label>
         </div>
@@ -77,15 +77,13 @@ class SignInFormBase extends Component {
             placeholder="Password"
             required
           />
-          <label for="name" className="form__label">
+          <label htmlFor="name" className="form__label">
             Password
           </label>
         </div>
 
         <div className="error">
-          {error && (
-            <p className="error__text caution__text">{error.message}</p>
-          )}
+          {error && <p className="error__text">{error.message}</p>}
         </div>
         <button
           disabled={isInvalid}

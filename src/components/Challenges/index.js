@@ -10,6 +10,7 @@ import QuestionRender from "./question";
 
 // import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 
 const INITIAL_STATE = {
   answerInput: "",
@@ -118,8 +119,8 @@ class ChallengesPageClass extends Component {
             <div className="loader">
               <div className="loader__inner">
                 {loading && (
-                  <ClipLoader
-                    size={25}
+                  <ClimbingBoxLoader
+                    size={20}
                     color={"#4CB8A4"}
                     loading={this.state.loading}
                   />
@@ -138,7 +139,7 @@ class ChallengesPageClass extends Component {
                     placeholder="Answer"
                     required
                   />
-                  <label for="name" className="form__label">
+                  <label htmlFor="name" className="form__label">
                     Enter Answer
                   </label>
                 </div>
@@ -155,7 +156,7 @@ class ChallengesPageClass extends Component {
               </form>
               <div className="error__div">
                 {error && (
-                  <p className="error__div__text muted__text caution__text smaller__text">
+                  <p className="error__div__text muted__text smaller__text">
                     {error.message}
                   </p>
                 )}

@@ -8,7 +8,7 @@ const SignOutButton = ({ firebase }) => (
     to="/signin"
     onClick={firebase.doSignOut}
   >
-    Sign Out
+    Logout
   </Link>
 );
 export default withFirebase(SignOutButton);

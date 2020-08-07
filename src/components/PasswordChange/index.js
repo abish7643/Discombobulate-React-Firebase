@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   passwordTwo: "",
   error: null,
   loading: false,
+  initiated: false,
 };
 
 class PasswordChangeForm extends Component {
@@ -28,6 +29,8 @@ class PasswordChangeForm extends Component {
         this.setState({ error });
         this.setState({ loading: false });
       });
+    this.setState({ initiated: true });
+
     event.preventDefault();
   };
   onChange = (event) => {
@@ -35,6 +38,10 @@ class PasswordChangeForm extends Component {
   };
   render() {
     const { passwordOne, passwordTwo, error, loading } = this.state;
+    // let message = "";
+    // if (!error && initiated) {
+    //   message = "Password Updated";
+    // }
     const isInvalid = passwordOne !== passwordTwo || passwordOne === "";
     return (
       <form onSubmit={this.onSubmit} className="formcontainer">
@@ -48,7 +55,7 @@ class PasswordChangeForm extends Component {
             placeholder="New Password"
             required
           />
-          <label for="name" className="form__label">
+          <label htmlFor="name" className="form__label">
             New Password
           </label>
         </div>
@@ -62,7 +69,7 @@ class PasswordChangeForm extends Component {
             placeholder="Confirm New Password"
             required
           />
-          <label for="name" className="form__label">
+          <label htmlFor="name" className="form__label">
             Confirm New Password
           </label>
         </div>
@@ -74,7 +81,10 @@ class PasswordChangeForm extends Component {
           Reset My Password{" "}
           <ClipLoader size={8} color={"#4CB8A4"} loading={loading} />
         </button>
-        <div className="error__div">
+        <div
+          className="error muted__text"
+          style={{ width: "100%", maxWidth: "350px", textAlign: "center" }}
+        >
           {error && <p className="error__div__text">{error.message}</p>}
         </div>
       </form>
