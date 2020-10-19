@@ -108,7 +108,7 @@ const NavigationNonAuth = () => (
           className="navigationbar__inner__right__link"
         >
           <GiDoorHandle className="navigationbar__inner__right__link__icon" />
-          Sign In
+          Login
         </NavLink>
       </div>
     </div>
